@@ -2,7 +2,7 @@
 ICT 2101-2201 Robot Car Website System Project.
 
 # Note <br/>
-* Please review our Wiki for project documentation and team management
+* Please review Wiki for project documentation and team management
 
 
 
