@@ -11,4 +11,4 @@ ICT 2101-2201 Robot Car Website System Project.
 </p>
 
 # Resources
-* Review Wiki for more information about the project and team management
+* Review [Wiki](https://github.com/Da1k0nBacon/rd-ICT2101-2201-Team-Project-P1---4/wiki) for more information about the project and team management
