@@ -1,1 +1,1 @@
-1.Thou shall always commit t o dev before the master
+1. thou shall always commit to dev before master
