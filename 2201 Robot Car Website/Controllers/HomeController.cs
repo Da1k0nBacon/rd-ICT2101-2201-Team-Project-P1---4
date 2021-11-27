@@ -23,6 +23,38 @@ namespace _2201_Robot_Car_Website.Controllers
             return View();
         }
 
+        public IActionResult Tutorial()
+        {
+            return View();
+        }
+
+        public IActionResult Student()
+        {
+            return View();
+        }
+
+        public IActionResult Challenge()
+        {
+            return View();
+        }
+        
+
+        public IActionResult EditMap()
+        {
+            return View();
+        }
+
+        public IActionResult Teacher()
+        {
+            return View();
+        }
+
+        public IActionResult StudentResult()
+        {
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
