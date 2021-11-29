@@ -8,19 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Alaric Tang\\.nuget\\packages\\": {}
+    "C:\\Users\\nlyh_\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alaric Tang\\source\\repos\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
+      "projectUniqueName": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
       "projectName": "2201 Robot Car Website",
-      "projectPath": "C:\\Users\\Alaric Tang\\source\\repos\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
-      "packagesPath": "C:\\Users\\Alaric Tang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alaric Tang\\source\\repos\\2201 Robot Car Website\\obj\\",
+      "projectPath": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
+      "packagesPath": "C:\\Users\\nlyh_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Alaric Tang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nlyh_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
