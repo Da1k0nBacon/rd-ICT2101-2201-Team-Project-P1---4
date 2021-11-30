@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj": {}
+    "C:\\Users\\Yu Hui\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj": {
+    "C:\\Users\\Yu Hui\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
+        "projectUniqueName": "C:\\Users\\Yu Hui\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
         "projectName": "2201 Robot Car Website",
-        "projectPath": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
-        "packagesPath": "C:\\Users\\nlyh_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\obj\\",
+        "projectPath": "C:\\Users\\Yu Hui\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
+        "packagesPath": "C:\\Users\\Yu Hui\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Yu Hui\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\nlyh_\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Yu Hui\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
