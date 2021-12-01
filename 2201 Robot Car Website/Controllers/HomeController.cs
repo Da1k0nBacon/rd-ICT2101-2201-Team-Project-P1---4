@@ -7,15 +7,18 @@ namespace _2201_Robot_Car_Website.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DataContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DataContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var student = _context.Student.ToList();
+            return View(student);
         }
 
         public IActionResult Privacy()
