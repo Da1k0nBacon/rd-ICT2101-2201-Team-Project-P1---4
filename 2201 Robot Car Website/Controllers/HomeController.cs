@@ -1,24 +1,23 @@
 ﻿using _2201_Robot_Car_Website.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using _2201_Robot_Car_Website.Data;
 
 namespace _2201_Robot_Car_Website.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly DataContext _context;
 
-        public HomeController(ILogger<HomeController> logger, DataContext context)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _context = context;
         }
 
         public IActionResult Index()
         {
-            var student = _context.Student.ToList();
-            return View(student);
+            var StudentList = DataAccess.GetClasses();
+            return View(StudentList);
         }
 
         public IActionResult Privacy()
