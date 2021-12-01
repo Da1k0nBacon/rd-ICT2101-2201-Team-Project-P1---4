@@ -1,6 +1,7 @@
 ﻿using _2201_Robot_Car_Website.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using _2201_Robot_Car_Website.Data;
 
 namespace _2201_Robot_Car_Website.Controllers
 {
@@ -15,7 +16,8 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var StudentList = DataAccess.GetClasses();
+            return View(StudentList);
         }
 
         public IActionResult Privacy()
