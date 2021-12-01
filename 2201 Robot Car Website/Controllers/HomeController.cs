@@ -54,7 +54,10 @@ namespace _2201_Robot_Car_Website.Controllers
             return View();
         }
 
-
+        public IActionResult loadingPage()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
