@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ju3xnw2tb8zfbSyO+lpjPtB7W9r3GFHitHbBGFlwMbg=",
+  "Hash": "HkZe8l9kgD/tV5/Y4WcP9wIbSPeReHwjpgSJ7mhIXLg=",
   "Source": "2201 Robot Car Website",
   "BasePath": "_content/2201 Robot Car Website",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\pic\\logo.JPG"
+    },
+    {
+      "Identity": "C:\\Users\\Yu Hui\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\wwwroot\\pic\\play.png",
+      "SourceId": "2201 Robot Car Website",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Yu Hui\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\wwwroot\\",
+      "BasePath": "_content/2201 Robot Car Website",
+      "RelativePath": "pic/play.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pic\\play.png"
     },
     {
       "Identity": "C:\\Users\\Yu Hui\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\wwwroot\\pic\\TreasureHunt.png",
