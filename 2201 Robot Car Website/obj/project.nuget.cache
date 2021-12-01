@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "imrSqIJ7ukMUmGaR3ENXbK6JqkmoFnOVjNFLNMPQ7aYTJi7xxIgyzQYMoT1M4qmXOdUwY+GUtdmV4OLTBi99Vw==",
+  "dgSpecHash": "krMP/MBjxRQCe6IFWdpLwSq4EpL/vzrLTmZJjdJdu36VEhaPT0IgzOWrQCvORNm+3SttPpj9DRvg3y8XODMZ4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "C:\\Users\\HongYing\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HongYing\\.nuget\\packages\\chart.mvc\\1.0.0.2\\chart.mvc.1.0.0.2.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Chart.Mvc 1.0.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Chart.Mvc",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

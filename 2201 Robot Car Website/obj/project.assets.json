@@ -1,31 +1,57 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Chart.Mvc/1.0.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Chart.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Chart.Mvc.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Chart.Mvc/1.0.0.2": {
+      "sha512": "siBzB5T2j0HW1yLrWGq51vtOVTFnvKmbXihR7i97VC0iDn7u5yoUpVjX0cjjLMCTM6ipNBrNZKX2JgL5VEVhpQ==",
+      "type": "package",
+      "path": "chart.mvc/1.0.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/Chart.js",
+        "chart.mvc.1.0.0.2.nupkg.sha512",
+        "chart.mvc.nuspec",
+        "lib/net40/Chart.Mvc.XML",
+        "lib/net40/Chart.Mvc.dll",
+        "lib/net40/Chart.Mvc.pdb",
+        "lib/net45/Chart.Mvc.XML",
+        "lib/net45/Chart.Mvc.dll",
+        "lib/net45/Chart.Mvc.pdb"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Chart.Mvc >= 1.0.0.2"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\nlyh_\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\HongYing\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
+      "projectUniqueName": "C:\\Users\\HongYing\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
       "projectName": "2201 Robot Car Website",
-      "projectPath": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
-      "packagesPath": "C:\\Users\\nlyh_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nlyh_\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\obj\\",
+      "projectPath": "C:\\Users\\HongYing\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\2201 Robot Car Website.csproj",
+      "packagesPath": "C:\\Users\\HongYing\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HongYing\\Documents\\GitHub\\rd-ICT2101-2201-Team-Project-P1---4\\2201 Robot Car Website\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\nlyh_\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\HongYing\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -50,6 +76,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Chart.Mvc": {
+            "target": "Package",
+            "version": "[1.0.0.2, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -71,5 +103,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Chart.Mvc 1.0.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Chart.Mvc",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -7,4 +7,8 @@
     <RootNamespace>_2201_Robot_Car_Website</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Chart.Mvc" Version="1.0.0.2" />
+  </ItemGroup>
+
 </Project>
