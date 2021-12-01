@@ -1,9 +1,194 @@
-﻿@{
-    ViewData["Title"] = "Challenge Page";
-}
+﻿@using Chart.Mvc.ComplexChart;
+@using Chart.Mvc.Extensions;
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+<style>
+    td {
+        padding: 0 15px;
+    }
+
+    #selectedCommand {
+        float: left;
+        width: 500px;
+        height: 150px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #mapDiv {
+        float: left;
+        width: 500px;
+        height: 350px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+
+    #selectedCommand > * {
+        margin-left: 30px;
+        margin-bottom: 10px;
+    }
+
+    /*#selectedCommand > *:first-child {
+        margin-left: 0px;
+    }*/
+    #submit, #removeCommand {
+        float: right;
+    }
+
+    .cen {
+        margin: auto;
+    }
+</style>
 
 <h1>@ViewData["Title"]</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Dis is da challenge page</h1>
+<div>
+    <h1 class="display-4 ">Dis is da challenge page</h1>
+
+    <table class="cen">
+        <tr>
+            <td colspan="4">
+                <div id="mapDiv">Map</div>
+            </td>
+            <td rowspan="3">
+                <canvas id="myCanvas" width="400" height="400"></canvas><br />
+                <canvas id="distCanvas" width="400" height="150"></canvas><br />
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <label id="connectionStatus">Connected</label>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="command" class="text-center">
+                    <input type="button" value="Up" id="up" />
+                    &nbsp;<input type="button" value="Down" id="down">
+                    &nbsp;<input type="button" value="Left" id="left">
+                    &nbsp;<input type="button" value="Right" id="right">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="selectedCommand"></div><br />
+                <img id="removeCommand" src="\image\bin.png" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;<input type="button" id="clear" value="Clear"></td>
+            <td colspan="2">&nbsp;<input type="button" id="submit" value="Submit"></td>
+            <td></td>
+        </tr>
+    </table>
 </div>
+
+<script>
+      new Sortable(command, {
+          group: {
+              name: 'command',
+              pull: 'clone',
+              put: false
+          },
+          sort: false
+      });
+
+      new Sortable(selectedCommand, {
+          group: {
+              name: 'selected',
+              put: 'command'
+          },
+      });
+      new Sortable(removeCommand, {
+          group: {
+              name: 'deleted',
+              put: 'selected'
+          },
+          onAdd: function (evt) {
+      this.el.removeChild(evt.item);
+    }
+      });
+
+         const ctx = document.getElementById('myCanvas').getContext('2d');
+         const myChart = new Chart(ctx, {
+             type: 'line',
+             data: {
+                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                 datasets: [{
+                     label: 'Speed',
+                     data: [12, 19, 3, 5, 2, 3],
+                     backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)'
+                     ],
+                     borderColor: [
+                         'rgba(255, 99, 132, 1)'
+                     ],
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 scales: {
+                     y: {
+                         beginAtZero: true
+                     }
+                 }
+             }
+         });
+
+         const distCtx = document.getElementById('distCanvas').getContext('2d');
+         const distChart = new Chart(distCtx, {
+             type: 'horizontalBar',
+             data: {
+                 labels: ['Distance'],
+                 datasets: [{
+                     label: 'Distance',
+                     data: [12, 19, 3, 5, 2, 3],
+                     backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)'
+                     ],
+                     borderColor: [
+                         'rgba(255, 99, 132, 1)'
+                     ],
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 indexAxis: 'y',
+                 scales: {
+                     x: {
+                         beginAtZero: true
+                     }
+                 },
+                 plugins: {
+           legend: {
+             position: 'right',
+           }
+         }
+
+             }
+         });
+
+       $('#submit').on('click', function() {
+                 var div = document.getElementById('selectedCommand');
+                 var c = div.childNodes;
+                  var txt = "";
+                  var i;
+                  for (i = 0; i < c.length; i++) {
+                    txt = txt + c[i].value + "<br>";
+                  }
+                  console.log(txt);
+
+         });
+
+         $('#clear').on('click', function() {
+                 var div = document.getElementById('selectedCommand');
+                 div.innerHTML="";
+
+         });
+</script> 
