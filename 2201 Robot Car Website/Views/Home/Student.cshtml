@@ -1,119 +1,181 @@
 ﻿@{
     ViewData["Title"] = "kids portal";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<h1>@ViewData["Title"]</h1>
+<!--load music and sound effects-->
+<script>
+    window.onload = function() {
+    document.getElementById("my_audio").play();
+}
+    $(function(){
+$('#videoHolder').hover(
+    function() {	$("audio")[1].play();},
+    function() {	$("audio")[1].pause();}
+    )
+});
+    $(function(){
+$('#videoHolder1').hover(
+    function() {	$("audio")[2].play();},
+    function() {	$("audio")[2].pause();}
+    )
+});
+    $(function(){
+$('#videoHolder2').hover(
+    function() {	$("audio")[3].play();},
+    function() {	$("audio")[3].pause();}
+    )
+});
+
+</script>
+
+<!--Background sound effect
+    autoplay when come to this page -->
+<audio id="my_audio" src="../sounds/videoplayback.3gpp" loop="loop" autoplay></audio>
+
+<!--Render Image background-->
+    <div class="fixed py-5">
+         <img src="~/pic/logo.jpg" alt="Some scenery" width="150">
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+     </div>
+
+<!--Tutorial-->
+         <div class="py-5" style="background-image:url(../pic/road.png)">
+           <div style="position:absolute">
+              <div id="videoHolder">
+                <a class="tutorial" asp-controller="Home" asp-action="Tutorial" style="text-decoration:none">Tutorial</a>
+                  <audio preload="auto">
+                      <source src="../sounds/tutorial.ogg"> </source>
+                  </audio>
+                </div>
+            </div>
+        </div>
 
 
-<ul class="navbar-nav flex-grow-1">
-    1024 × 622 - img size
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Challenge">Challenge</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Tutorial">Tutorial</a>
-    </li>
-</ul>
+   <div class="album py-5" style="background-color:#f8efc6">
 
-<div class="py-5" style="background-color:#A2D82B">
-    <div style="position:absolute"><input type="submit" value="Tutorial" class="tutorial" asp-controller="Home" asp-action="Tutorial"/></div>
-</div>
- 
-
-   <div class="album py-5" style="background-color:#FFE000">
+       <!--Hover challenges for sound effect-->
        <div class="text-center">
-            <h4 class="white">challenges</h4>
+          <div id="videoHolder1">
+                <h4 class="white">CHALLENGES</h4>
+                  <audio preload="auto">
+                      <source src="../sounds/challenges.ogg"> </source>
+                 </audio>
+            </div>
         </div>
         <br/>
-        
+
+        <!--Catalog of challenges: need backend codes to stop repetitive and get from db i.e. need one card will do-->
         <div class="container">
               <div class="container">
                    <div class="container">
                         <div class="container">
                              <div class="container">
-          <div class="row">
-              <div class="col-md-4" >
-              <div class="card mb-4 box-shadow">
-                <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
-                <div class="card-body">
-                  <p class="card-text">Help Tom find treasure</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button"  class="play">Play</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
-                <div class="card-body">
-                  <p class="card-text">Park your car based on colors</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                     <button type="button"  class="play">Play</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
-                <div class="card-body">
-                  <p class="card-text">Help Tom find treasure</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <button type="button"  class="play">Play</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
-                <div class="card-body">
-                  <p class="card-text">Park your car based on colors</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                     <button type="button" class="play">Play</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
-                <div class="card-body">
-                  <p class="card-text">Help Tom find treasure</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                   <button type="button" class="play">Play</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
-                <div class="card-body">
-                  <p class="card-text">Park your car based on colors</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="play">Play</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
+                                  <div class="row">
+                                          <div class="col-md-4" >
+                                          <div class="card mb-4 box-shadow">
+                                            <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
+                                            <div class="card-body">
+                                              <p class="card-text">Help Tom find treasure</p>
+                                              <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                         <div id="videoHolder2">
+                                                             <!--hover play for sound effect-->
+                                                              <a class="play nav-link text-light"  asp-controller="Home" asp-action="Challenge">Play</a>
+                                                              <audio preload="auto">
+                                                                  <source src="../sounds/play.ogg"> </source>
+                                                             </audio>
+                                                        </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="card mb-4 box-shadow">
+                                            <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
+                                            <div class="card-body">
+                                              <p class="card-text">Park your car based on colors</p>
+                                              <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                 <a class="play nav-link text-light"  asp-controller="Home" asp-action="Challenge">Play</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      <div class="col-md-4">
+                                          <div class="card mb-4 box-shadow">
+                                            <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
+                                            <div class="card-body">
+                                              <p class="card-text">Help Tom find treasure</p>
+                                              <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                               <a class="play nav-link text-light"  asp-controller="Home" asp-action="Challenge">Play</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="card mb-4 box-shadow">
+                                            <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
+                                            <div class="card-body">
+                                              <p class="card-text">Park your car based on colors</p>
+                                              <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                <a class="play nav-link text-light"  asp-controller="Home" asp-action="Challenge">Play</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="card mb-4 box-shadow">
+                                            <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
+                                            <div class="card-body">
+                                              <p class="card-text">Help Tom find treasure</p>
+                                              <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                               <a class="play nav-link text-light"  asp-controller="Home" asp-action="Challenge">Play</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="card mb-4 box-shadow">
+                                            <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
+                                            <div class="card-body">
+                                              <p class="card-text">Park your car based on colors</p>
+                                              <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                <a class="play nav-link text-light"  asp-controller="Home" asp-action="Challenge">Play</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                               </div>
+                            </div>
+                          </div>
+                         </div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
