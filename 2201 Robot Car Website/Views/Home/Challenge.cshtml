@@ -3,6 +3,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
     td {
         padding: 0 15px;
@@ -42,43 +43,85 @@
     .cen {
         margin: auto;
     }
-</style>
 
+
+</style>
+ <link rel="stylesheet" href="~/style/gameUI.css" asp-append-version="true" />
+<script>
+$(function(){
+$('#heartbeat').hover(
+    function() {	$("audio")[0].play();},
+    function() {	$("audio")[0].pause();}
+    )
+});
+
+
+ function goFullScreen(){
+
+        var elem = document.getElementById('temp');
+
+        if(elem.requestFullscreen){
+            elem.requestFullscreen();
+        }
+        else if(elem.mozRequestFullScreen){
+            elem.mozRequestFullScreen();
+        }
+        else if(elem.webkitRequestFullscreen){
+            elem.webkitRequestFullscreen();
+        }
+        else if(elem.msRequestFullscreen){
+            elem.msRequestFullscreen();
+        }
+    }
+    </script>
 <h1>@ViewData["Title"]</h1>
 
-<div>
-    <h1 class="display-4 ">Dis is da challenge page</h1>
 
-    <table class="cen">
+
+<div>
+    <table>
+        <td><p class="game-title">Treasure Hunt</p></td>
+        <td><input type="button" value="Fullscreen" onclick="goFullScreen()" style="float:right;"/></td>
+    </table>
+    
+    
+    <div id="temp" style="background-image:url(../pic/scenery.jpg); opacity:0.8;">
+        <br/>
+        <table class="cen">
         <tr>
             <td colspan="4">
-                <div id="mapDiv">Map</div>
+                <div id="mapDiv"  style="background-color:white">Map</div>
             </td>
             <td rowspan="3">
-                <canvas id="myCanvas" width="400" height="400"></canvas><br />
-                <canvas id="distCanvas" width="400" height="150"></canvas><br />
+                <canvas id="myCanvas" width="400" height="400" style="background-color:white"></canvas><br />
+                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />
                 <div class="card bg-light">
                     <div class="card-body text-center">
                         <label id="connectionStatus">Connected</label>
                     </div>
                 </div>
-
             </td>
         </tr>
         <tr>
             <td colspan="4">
-                <div id="command" class="text-center">
-                    <input type="button" value="Up" id="up" />
-                    &nbsp;<input type="button" value="Down" id="down">
-                    &nbsp;<input type="button" value="Left" id="left">
-                    &nbsp;<input type="button" value="Right" id="right">
+                <div id="heartbeat">
+                    <audio src="https://css-tricks.com/examples/SoundOnHover/audio/beep.mp3" preload="auto">
+	                    Your browser does not support the <code>audio</code> element.
+                    </audio>
+                      <div id="command" class="text-center">
+                                  <input type="button" class="game-button" value="Up" id="up" />
+                            &nbsp;<input type="button" class="game-button orange" value="Down" id="down">
+                            &nbsp;<input type="button" class="game-button red" value="Left" id="left">
+                            &nbsp;<input type="button" class="game-button green" value="Right" id="right">
+                    </div>
                 </div>
             </td>
         </tr>
         <tr>
             <td colspan="4">
-                <div id="selectedCommand"></div><br />
+                <div id="selectedCommand" style="background-color:white"></div><br />
                 <img id="removeCommand" src="\image\bin.png" />
+                <br/>
             </td>
         </tr>
         <tr>
@@ -87,6 +130,10 @@
             <td></td>
         </tr>
     </table>
+    
+    
+    </div>
+    
      <a asp-controller="Home" asp-action="Student" style="text-decoration:none">Back to Student</a>
 </div>
 

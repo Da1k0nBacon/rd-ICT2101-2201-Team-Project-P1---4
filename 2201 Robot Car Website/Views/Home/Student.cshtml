@@ -2,7 +2,7 @@
     ViewData["Title"] = "kids portal";
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+ <link rel="stylesheet" href="~/style/dashboard.css" asp-append-version="true" />
 <!--load music and sound effects-->
 <script>
     window.onload = function() {
@@ -53,7 +53,7 @@ $('#videoHolder2').hover(
          <div class="py-5" style="background-image:url(../pic/road.png)">
            <div style="position:absolute">
               <div id="videoHolder">
-                <a class="tutorial" asp-controller="Home" asp-action="Tutorial" style="text-decoration:none">Tutorial</a>
+                <a class="game-button" asp-controller="Home" asp-action="Tutorial" style="text-decoration:none">Tutorial</a>
                   <audio preload="auto">
                       <source src="../sounds/tutorial.ogg"> </source>
                   </audio>
@@ -62,7 +62,7 @@ $('#videoHolder2').hover(
         </div>
 
 
-   <div class="album py-5" style="background-color:#f8efc6">
+   <div class="album py-5" style="background-color:#FFE000">
 
        <!--Hover challenges for sound effect-->
        <div class="text-center">
@@ -83,15 +83,16 @@ $('#videoHolder2').hover(
                              <div class="container">
                                   <div class="row">
                                           <div class="col-md-4" >
-                                          <div class="card mb-4 box-shadow">
+                                          <div class="card mb-4 box-shadow1">
                                             <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
                                             <div class="card-body">
+                                             <p class="card-text" style="text-decoration:underline; color:blue;">Treasure Hunt</p>
                                               <p class="card-text">Help Tom find treasure</p>
                                               <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
                                                          <div id="videoHolder2">
                                                              <!--hover play for sound effect-->
-                                                              <a class="play nav-link text-light"  asp-controller="Home" asp-action="Challenge">Play</a>
+                                                              <a class="play nav-link text-light"  asp-controller="Home" asp-action="loadingPage">Play</a>
                                                               <audio preload="auto">
                                                                   <source src="../sounds/play.ogg"> </source>
                                                              </audio>
@@ -102,9 +103,10 @@ $('#videoHolder2').hover(
                                           </div>
                                         </div>
                                         <div class="col-md-4">
-                                          <div class="card mb-4 box-shadow">
+                                          <div class="card mb-4 box-shadow1">
                                             <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
                                             <div class="card-body">
+                                                <p class="card-text" style="text-decoration:underline; color:blue;">Parking with colors</p>
                                               <p class="card-text">Park your car based on colors</p>
                                               <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
@@ -115,9 +117,10 @@ $('#videoHolder2').hover(
                                           </div>
                                         </div>
                                       <div class="col-md-4">
-                                          <div class="card mb-4 box-shadow">
+                                          <div class="card mb-4 box-shadow1">
                                             <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
                                             <div class="card-body">
+                                                <p class="card-text" style="text-decoration:underline; color:blue;">Treasure Hunt</p>
                                               <p class="card-text">Help Tom find treasure</p>
                                               <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
@@ -128,9 +131,10 @@ $('#videoHolder2').hover(
                                           </div>
                                         </div>
                                         <div class="col-md-4">
-                                          <div class="card mb-4 box-shadow">
+                                          <div class="card mb-4 box-shadow1">
                                             <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
                                             <div class="card-body">
+                                                 <p class="card-text" style="text-decoration:underline; color:blue;">Parking with colors</p>
                                               <p class="card-text">Park your car based on colors</p>
                                               <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
@@ -141,9 +145,10 @@ $('#videoHolder2').hover(
                                           </div>
                                         </div>
                                         <div class="col-md-4">
-                                          <div class="card mb-4 box-shadow">
+                                          <div class="card mb-4 box-shadow1">
                                             <img src="~/pic/TreasureHunt.png" alt="Card image cap" class="card-img-top">
                                             <div class="card-body">
+                                                <p class="card-text" style="text-decoration:underline; color:blue;">Treasure Hunt</p>
                                               <p class="card-text">Help Tom find treasure</p>
                                               <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
@@ -154,9 +159,10 @@ $('#videoHolder2').hover(
                                           </div>
                                         </div>
                                         <div class="col-md-4">
-                                          <div class="card mb-4 box-shadow">
+                                          <div class="card mb-4 box-shadow1">
                                             <img src="~/pic/ColorCarparking.jpg" alt="Card image cap" class="card-img-top">
                                             <div class="card-body">
+                                                 <p class="card-text" style="text-decoration:underline; color:blue;">Parking with colors</p>
                                               <p class="card-text">Park your car based on colors</p>
                                               <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">

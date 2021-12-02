@@ -1,7 +1,13 @@
+using _2201_Robot_Car_Website.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+
 
 var app = builder.Build();
 
