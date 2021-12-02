@@ -1,0 +1,242 @@
+﻿@using Chart.Mvc.ComplexChart;
+@using Chart.Mvc.Extensions;
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    td {
+        padding: 0 15px;
+    }
+
+    #selectedCommand {
+        float: left;
+        width: 500px;
+        height: 150px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #mapDiv {
+        float: left;
+        width: 500px;
+        height: 350px;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+
+    #selectedCommand > * {
+        margin-left: 30px;
+        margin-bottom: 10px;
+    }
+
+    /*#selectedCommand > *:first-child {
+        margin-left: 0px;
+    }*/
+    #submit, #removeCommand {
+        float: right;
+    }
+
+    .cen {
+        margin: auto;
+    }
+
+
+</style>
+ <link rel="stylesheet" href="~/style/gameUI.css" asp-append-version="true" />
+<script>
+$(function(){
+$('#heartbeat').hover(
+    function() {	$("audio")[0].play();},
+    function() {	$("audio")[0].pause();}
+    )
+});
+
+
+ function goFullScreen(){
+
+        var elem = document.getElementById('temp');
+
+        if(elem.requestFullscreen){
+            elem.requestFullscreen();
+        }
+        else if(elem.mozRequestFullScreen){
+            elem.mozRequestFullScreen();
+        }
+        else if(elem.webkitRequestFullscreen){
+            elem.webkitRequestFullscreen();
+        }
+        else if(elem.msRequestFullscreen){
+            elem.msRequestFullscreen();
+        }
+    }
+    </script>
+<h1>@ViewData["Title"]</h1>
+
+
+
+<div>
+    <table>
+        <td><p class="game-title">Treasure Hunt</p></td>
+        <td><input type="button" value="Fullscreen" onclick="goFullScreen()" style="float:right;"/></td>
+    </table>
+    
+    
+    <div id="temp" style="background-image:url(../pic/scenery.jpg); opacity:0.8;">
+        <br/>
+        <table class="cen">
+        <tr>
+            <td colspan="4">
+                <div id="mapDiv"  style="background-color:white">Map</div>
+            </td>
+            <td rowspan="3">
+                <canvas id="myCanvas" width="400" height="400" style="background-color:white"></canvas><br />
+                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />
+                <div class="card bg-light">
+                    <div class="card-body text-center">
+                        <label id="connectionStatus">Connected</label>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="heartbeat">
+                    <audio src="https://css-tricks.com/examples/SoundOnHover/audio/beep.mp3" preload="auto">
+	                    Your browser does not support the <code>audio</code> element.
+                    </audio>
+                      <div id="command" class="text-center">
+                                  <input type="button" class="game-button" value="Up" id="up" />
+                            &nbsp;<input type="button" class="game-button orange" value="Down" id="down">
+                            &nbsp;<input type="button" class="game-button red" value="Left" id="left">
+                            &nbsp;<input type="button" class="game-button green" value="Right" id="right">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div id="selectedCommand" style="background-color:white"></div><br />
+                <img id="removeCommand" src="\image\bin.png" />
+                <br/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;<input type="button" id="clear" value="Clear"></td>
+            <td colspan="2">&nbsp;<input type="button" id="submit" value="Submit"></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    
+    </div>
+    
+     <a asp-controller="Home" asp-action="Student" style="text-decoration:none">Back to Student</a>
+</div>
+
+<script>
+      new Sortable(command, {
+          group: {
+              name: 'command',
+              pull: 'clone',
+              put: false
+          },
+          sort: false
+      });
+
+      new Sortable(selectedCommand, {
+          group: {
+              name: 'selected',
+              put: 'command'
+          },
+      });
+      new Sortable(removeCommand, {
+          group: {
+              name: 'deleted',
+              put: 'selected'
+          },
+          onAdd: function (evt) {
+      this.el.removeChild(evt.item);
+    }
+      });
+
+         const ctx = document.getElementById('myCanvas').getContext('2d');
+         const myChart = new Chart(ctx, {
+             type: 'line',
+             data: {
+                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                 datasets: [{
+                     label: 'Speed',
+                     data: [12, 19, 3, 5, 2, 3],
+                     backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)'
+                     ],
+                     borderColor: [
+                         'rgba(255, 99, 132, 1)'
+                     ],
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 scales: {
+                     y: {
+                         beginAtZero: true
+                     }
+                 }
+             }
+         });
+
+         const distCtx = document.getElementById('distCanvas').getContext('2d');
+         const distChart = new Chart(distCtx, {
+             type: 'horizontalBar',
+             data: {
+                 labels: ['Distance'],
+                 datasets: [{
+                     label: 'Distance',
+                     data: [12, 19, 3, 5, 2, 3],
+                     backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)'
+                     ],
+                     borderColor: [
+                         'rgba(255, 99, 132, 1)'
+                     ],
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 indexAxis: 'y',
+                 scales: {
+                     x: {
+                         beginAtZero: true
+                     }
+                 },
+                 plugins: {
+           legend: {
+             position: 'right',
+           }
+         }
+
+             }
+         });
+
+       $('#submit').on('click', function() {
+                 var div = document.getElementById('selectedCommand');
+                 var c = div.childNodes;
+                  var txt = "";
+                  var i;
+                  for (i = 0; i < c.length; i++) {
+                    txt = txt + c[i].value + "<br>";
+                  }
+                  console.log(txt);
+
+         });
+
+         $('#clear').on('click', function() {
+                 var div = document.getElementById('selectedCommand');
+                 div.innerHTML="";
+
+         });
+</script> 

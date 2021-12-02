@@ -1,0 +1,38 @@
+﻿@model List<_2201_Robot_Car_Website.Models.Student>
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<br/>
+<br/>
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Teacher">Teacher</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Student">Student</a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="text-center">
+    <h1 class="display-4">dis da home page</h1>
+    <table class="d-lg-table table-bordered">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Student Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.StudentName</td>
+                <td>@s.Class</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
