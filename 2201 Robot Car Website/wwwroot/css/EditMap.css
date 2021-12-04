@@ -17,6 +17,38 @@ body {
     margin-bottom: 60px;
 }
 
+.whiteroad:disabled {
+    border: 2px solid #000000;
+    color: black;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+}
+
+.greenplayer:disabled {
+    border: 2px solid #000000;
+    color: black;
+    background-color: green;
+    width: 100px;
+    height: 100px;
+}
+
+.redwall:disabled {
+    border: 2px solid #000000;
+    color: black;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+}
+
+.yellowgoal:disabled {
+    border: 2px solid #000000;
+    color: black;
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+}
+
 .map {
     border: 2px solid #000000;
     background-color: white;

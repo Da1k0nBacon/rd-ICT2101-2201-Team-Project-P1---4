@@ -6,11 +6,20 @@
     <link rel="stylesheet" href="~/css/EditMap.css" />
 </head>
 
-<h1>@ViewData["Title"]</h1>
-
 <div class="text-center">
     <h1 class="display-4">Map Edit</h1>
 </div>
+
+<br/>
+
+<div class="text-center">
+    <button disabled class="whiteroad">Road</button>
+    <button disabled class="redwall">Wall</button>
+    <button disabled class="greenplayer">Start Point</button>
+    <button disabled class="yellowgoal">Goal</button>
+</div>
+<br/>
+
 <div class="text-center">
     <button id="1" class="map" value="0" onclick="increment(this.id)"></button>
     <button id="2" class="map" value="0" onclick="increment(this.id)"></button>
@@ -35,36 +44,37 @@
     <button id="15" class="map" value="0" onclick="increment(this.id)"></button>
     <button id="16" class="map" value="0" onclick="increment(this.id)"></button>
 </div>
+<br/>
 <div class="text-center">
     <button class="submit" onclick="submit()">SUBMIT</button>
 </div>
 
 <script>
-var value = 0
-function increment(thisID){
-    value = parseInt(document.getElementById(thisID).value) + 1;
-    if (value == 4){
-        value = 0;
+    var value = 0
+    function increment(thisID){
+        value = parseInt(document.getElementById(thisID).value) + 1;
+        if (value == 4){
+            value = 0;
+        }
+        if (value == 0){
+            document.getElementById(thisID).style.backgroundColor = "white";
+        }
+        else if (value == 1){
+            document.getElementById(thisID).style.backgroundColor = "red";
+        }
+        else if (value == 2){
+            document.getElementById(thisID).style.backgroundColor = "green";
+        }
+        else if (value == 3){
+            document.getElementById(thisID).style.backgroundColor = "yellow";
+        }
+        document.getElementById(thisID).value = value.toString();
     }
-    if (value == 0){
-        document.getElementById(thisID).style.backgroundColor = "white";
+    function submit(){
+        var map = new Array();
+        for(var i = 1; i < 16; i++){
+            map[i-1] = document.getElementById(i.toString()).value;
+        }
+        alert(map);
     }
-    else if (value == 1){
-        document.getElementById(thisID).style.backgroundColor = "red";
-    }
-    else if (value == 2){
-        document.getElementById(thisID).style.backgroundColor = "green";
-    }
-    else if (value == 3){
-        document.getElementById(thisID).style.backgroundColor = "yellow";
-    }
-    document.getElementById(thisID).value = value.toString();
-}
-function submit(){
-    var map = new Array();
-    for(var i = 1; i < 16; i++){
-        map[i-1] = document.getElementById(i.toString()).value;
-    }
-    alert(map);
-}
 </script>
