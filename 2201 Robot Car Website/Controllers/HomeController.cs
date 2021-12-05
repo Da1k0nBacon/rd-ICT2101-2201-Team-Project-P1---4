@@ -2,11 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using _2201_Robot_Car_Website.Data;
+using System.Data;
+using System.Text.Json;
 
 namespace _2201_Robot_Car_Website.Controllers
 {
     public class HomeController : Controller
     {
+        Student context = new Student();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -39,7 +42,7 @@ namespace _2201_Robot_Car_Website.Controllers
         {
             return View();
         }
-        
+
 
         public IActionResult EditMap()
         {
@@ -48,7 +51,8 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Teacher()
         {
-            return View();
+            var StudentList = DataAccess.GetRobotData();
+            return View(StudentList);
         }
 
         public IActionResult StudentResult()
@@ -65,5 +69,35 @@ namespace _2201_Robot_Car_Website.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //[HttpPost]
+        //public ActionResult getRobot(Student sClass)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                (Student sClass)
+        //{
+        //    context.Students.Add(sClass);
+        //    context.SaveChanges();
+        //    string message = "SUCCESS";
+        //    return Json(new { Message = message, JsonRequestBehavior.AllowGet });
+        //}
+
+        [HttpPost]
+        public ActionResult getRobot([FromBody] Student sClass)
+        {
+            string message = sClass.sClass;
+
+            var StudentList = DataAccess.GetRobotDataTest(message);
+            
+
+            return Json(JsonSerializer.Serialize(StudentList));
+        }
+
+        [HttpGet]
+        public ActionResult getStudent()
+        {
+            List<Student> students = new List<Student>();
+            students = context.Students.ToList();
+            //return Json(students, JsonRequestBehavior.AllowGet);
+            return Json(students);
+        }
+
     }
 }

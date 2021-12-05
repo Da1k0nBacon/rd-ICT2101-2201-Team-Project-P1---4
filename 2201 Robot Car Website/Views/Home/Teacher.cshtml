@@ -1,11 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Teacher Page";
+    ViewBag.Title = "Teacher";
 }
+@model IEnumerable<_2201_Robot_Car_Website.Models.Student>
 @using Chart.Mvc.ComplexChart;
 @using Chart.Mvc.Extensions;
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
-
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <h1>@ViewData["Title"]</h1>
 
 <ul class="navbar-nav flex-grow-1">
@@ -21,21 +26,27 @@
     .cen {
         margin: auto;
     }
+
     td {
-    padding: 0 15px;
-  }
-  tr {
-    padding: 0 50px;
-  }
+        padding: 0 15px;
+    }
+
+    tr {
+        padding: 0 50px;
+    }
 </style>
 
 <div class="cen">
     <h1 class="display-4">Dis is da Teacher page</h1>
     <div class="card">
-
     </div>
 
     <table class="cen">
+        <tr>
+            <td>
+                <input type="button" id="viewRobotData" value="View Robot Data">
+            </td>
+        </tr>
         <tr>
             <td>
                 <div class="card border-left-primary h-100 py-2">
@@ -55,7 +66,7 @@
                 </div>
             </td>
             <td>
-               <div class="card border-left-primary h-100 py-2">
+                <div class="card border-left-primary h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -112,7 +123,7 @@
             <td colspan="4">
                 <canvas id="taskCompleted" width="200" height="80"></canvas>
             </td>
-            
+
         </tr>
         <tr>
             <td colspan="4">
@@ -120,10 +131,92 @@
             </td>
         </tr>
         <tr>
-            <td colspan="4">&nbsp;</td>
+            <td colspan="4">
+                @{
+                    var listitems = new List<SelectListItem>();
+                    listitems.Add(new SelectListItem() { Text = "ABC", Value = "ABC" });
+                    listitems.Add(new SelectListItem() { Text = "EFG", Value = "EFG" });
+                }
+                @Html.DropDownList("DropDownListValue", listitems,new { onchange = "showData(this);" })
+
+            </td>
         </tr>
     </table>
+
+
+    <table id="myTable" class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentName )
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Class)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ConStatus)
+                    </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Class)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConStatus)
+                    </td>
+                     <td>
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
 </div>
+
+<div class="modal fade modal" tabindex="-1" id="loginModal"
+     data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    ×
+                </button>
+                <h4 class="modal-title">Satya Login</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input class="form-control" type="text"
+                               placeholder="Login Username" id="inputUserName" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Login Password"
+                               type="password" id="inputPassword" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary button button4">Sign</button>
+                <button type="button" id="btnHideModal" class="btn btn-primary button button4">
+                    Hide
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     const complete = document.getElementById('taskCompleted').getContext('2d');
          const chart1 = new Chart(complete, {
@@ -173,4 +266,50 @@
                  }
              }
          });
+
+         //$(document).ready(function () {
+         //    $('#viewRobotData').on('click', function() {
+         //        console.log($('#loginModal'));
+         //        document.write("<style>.container-menu-header {z-index: 0; }</style>");
+         //       $('#loginModal').modal('show');
+
+         //    });
+         //    $("#btnHideModal").click(function () {
+         //           $("#loginModal").modal('hide');
+         //       });
+         //});
+         
+
+     function showData(val){
+        console.log("Hi: ", val.value);
+        var MyAppUrlSettings = {
+            MyUsefulUrl : '@Url.Action("getRobot")'
+            
+        }
+        var obj ={
+            sClass: val.value
+        }
+        $.ajax({  
+             url: MyAppUrlSettings.MyUsefulUrl,
+            data: JSON.stringify(obj), 
+            type: 'POST',  
+            contentType: 'application/json',  
+            dataType: 'json',  
+            //beforeSend: function(){  
+            //    Show(); // Show loader icon  
+            //},  
+            success: function (response) {  
+                console.log(response); 
+                console.log("Nice");
+            },            
+            //complete: function(){  
+            //    Hide(); // Hide loader icon  
+            //},  
+            failure: function (jqXHR, textStatus, errorThrown) {                  
+                alert("Status: " + jqXHR.status + "; Error: " + jqXHR.responseText); // Display error message  
+                console.log("Emo");
+            }  
+        });  
+
+     }
 </script>
