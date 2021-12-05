@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using _2201_Robot_Car_Website.Data;
+using Newtonsoft.Json;
 
 namespace _2201_Robot_Car_Website.Controllers
 {
@@ -39,7 +40,19 @@ namespace _2201_Robot_Car_Website.Controllers
         {
             return View();
         }
-        
+
+        public JsonResult SendChallengeData(string cmdSeqList)
+        {
+            var test = JsonConvert.DeserializeObject<dynamic>(cmdSeqList);
+            foreach (var testItem in test)
+            {
+                string Dir = testItem.Direction;
+            }
+
+            return Json(test);
+
+        }
+
 
         public IActionResult EditMap()
         {
