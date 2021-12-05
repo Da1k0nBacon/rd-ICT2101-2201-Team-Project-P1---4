@@ -44,36 +44,24 @@
         margin: auto;
     }
 
+     .CommandHistory {
+        width: 300px;
+        height: 400px;
+        background-color: white;
+        text-align: center;
+        overflow-y: scroll;
+    }
+    .ComHistEntry{
+        width: 300px;
+        height: 50px;
+        background-color: yellow;
+        text-align: center;
+    }
+
 
 </style>
  <link rel="stylesheet" href="~/style/gameUI.css" asp-append-version="true" />
-<script>
-$(function(){
-$('#heartbeat').hover(
-    function() {	$("audio")[0].play();},
-    function() {	$("audio")[0].pause();}
-    )
-});
 
-
- function goFullScreen(){
-
-        var elem = document.getElementById('temp');
-
-        if(elem.requestFullscreen){
-            elem.requestFullscreen();
-        }
-        else if(elem.mozRequestFullScreen){
-            elem.mozRequestFullScreen();
-        }
-        else if(elem.webkitRequestFullscreen){
-            elem.webkitRequestFullscreen();
-        }
-        else if(elem.msRequestFullscreen){
-            elem.msRequestFullscreen();
-        }
-    }
-    </script>
 <h1>@ViewData["Title"]</h1>
 
 
@@ -98,6 +86,14 @@ $('#heartbeat').hover(
                 <div class="card bg-light">
                     <div class="card-body text-center">
                         <label id="connectionStatus">Connected</label>
+                    </div>
+                </div>
+            </td>
+            <td rowspan="3">
+                @*<canvas id="myCanvas" width="300" height="400" style="background-color:white"></canvas><br />
+                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />*@
+                <div class="CommandHistory" id="CommandHistory">
+                        <label>Command History<br></></label>
                     </div>
                 </div>
             </td>
@@ -129,6 +125,7 @@ $('#heartbeat').hover(
             <td colspan="2">&nbsp;<input type="button" id="submit" value="Submit"></td>
             <td></td>
         </tr>
+
     </table>
     
     
@@ -138,6 +135,30 @@ $('#heartbeat').hover(
 </div>
 
 <script>
+
+      $('#heartbeat').hover( 
+        function() {$("audio")[0].play();},
+        function() {$("audio")[0].pause();}
+    );
+
+
+     function goFullScreen(){
+
+            var elem = document.getElementById('temp');
+
+            if(elem.requestFullscreen){
+                elem.requestFullscreen();
+            }
+            else if(elem.mozRequestFullScreen){
+                elem.mozRequestFullScreen();
+            }
+            else if(elem.webkitRequestFullscreen){
+                elem.webkitRequestFullscreen();
+            }
+            else if(elem.msRequestFullscreen){
+                elem.msRequestFullscreen();
+            }
+        }
       new Sortable(command, {
           group: {
               name: 'command',
@@ -223,14 +244,41 @@ $('#heartbeat').hover(
          });
 
        $('#submit').on('click', function() {
-                 var div = document.getElementById('selectedCommand');
-                 var c = div.childNodes;
-                  var txt = "";
-                  var i;
-                  for (i = 0; i < c.length; i++) {
-                    txt = txt + c[i].value + "<br>";
-                  }
-                  console.log(txt);
+            var div = document.getElementById('selectedCommand');
+            var c = div.childNodes;
+            var txt = "";
+            var cmdSeqList = [];
+            for (var i = 0; i < c.length; i++) {
+            txt = txt + c[i].value + " ";
+            cmdSeqList.push(c[i].value);
+            }
+            if(txt != ""){
+                $('#CommandHistory').append("<div id= 'ComHistEntry' class= 'ComHistEntry'><p>" +txt +"</p></div>");
+            }
+
+            var jsonList = [];
+            for (var i = 0; i < cmdSeqList.length; i++) 
+            {
+                    jsonList.push({'Direction' : cmdSeqList[i] , 'CommandSeq_id' : 1 , 'OrderNum' :  i , 'Student_Sid' : 1, 'Mapdata_Mid' : 10});
+            }
+            const jsonString = JSON.stringify(jsonList);
+
+            
+            $.ajax({
+                url: 'SendChallengeData',
+                type: 'POST',
+                data:{'cmdSeqList' : jsonString},
+                cache: false,
+                success: function(data){
+                    alert("Saved to DB!")
+                },error: function(data){
+                    alert("Failed to save data");
+                }
+                
+                
+            });
+
+                  
 
          });
 
