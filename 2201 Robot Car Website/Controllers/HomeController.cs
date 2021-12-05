@@ -43,13 +43,22 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public JsonResult SendChallengeData(string cmdSeqList)
         {
-            var test = JsonConvert.DeserializeObject<dynamic>(cmdSeqList);
-            foreach (var testItem in test)
-            {
-                string Dir = testItem.Direction;
-            }
+            var jsonList = JsonConvert.DeserializeObject<dynamic>(cmdSeqList);
 
-            return Json(test);
+            List<command> cmdList = new List<command>();
+            foreach (var jsonItem in jsonList)
+            {
+                command cmd = new command();
+                cmd.Direction = jsonItem.Direction;
+                cmd.Student_Sid = jsonItem.Student_Sid;
+                cmd.OrderNum = jsonItem.OrderNum;
+                cmd.Mapdata_Mid = jsonItem.Mapdata_Mid;
+                cmd.CommandSeq_id = jsonItem.CommandSeq_id;
+                cmdList.Add(cmd);
+            }
+            DataAccess.SaveCommandHistory(cmdList);
+
+            return Json(jsonList);
 
         }
 
