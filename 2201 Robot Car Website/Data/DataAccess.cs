@@ -52,9 +52,11 @@ namespace _2201_Robot_Car_Website.Data
                 }
                 con.Close();
 
-                
+
 
                 return student;
+            }
+        }
         public static List<command> LoadCommandHist()
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
