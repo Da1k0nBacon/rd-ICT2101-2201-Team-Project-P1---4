@@ -14,17 +14,34 @@
 
         <style>
             #content{
-                display:flex;
+                margin: 200px;
+                text-align:center;
                 align-content:center;
+            }
+
+            #loginBtns{
+                display:flex;
                 justify-content:center;
+                padding:20px;
+
+            }
+
+            #btns{
+                margin:20px;
+                height:300px;
+                width:200px;
+                background-color:#f8efc6;
+                border:1px solid lightgrey;
+                color: black;
             }
         </style>
     </head>
     <body>
         <div id="content">
-            <img src="~/pic/logo.jpg"/>
-            <section>
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#teacherModal">Teacher</button>
+            <img src="~/pic/logo.jpg" style="width:300px; height:100px;"/>
+            <br/>
+            <section id="loginBtns">
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#teacherModal" id="btns">Teacher</button>
                 @using (Html.BeginForm("GoTeacher","Login", FormMethod.Post))
                 {
                         <div class="modal fade" id="teacherModal" role="dialog">
@@ -35,6 +52,7 @@
                                     <h2 class="modal-title">Teacher Credentials</h2>
                                 </div>
                                 <div class="modal-body">
+                                    <h4>Enter your teacher ID and password.</h4>
                                     <label for="fname">ID:</label><br>
                                     <input type="text" id="TID" name="TID"><br>
                                     <label for="fname">Password:</label><br>
@@ -47,7 +65,7 @@
                             </div>
                         </div>
                         }
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#studentModal">Student</button>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#studentModal" id="btns">Student</button>
                 @using (Html.BeginForm("GoStudent","Login", FormMethod.Post))
                 {
                         <div class="modal fade" id="studentModal" role="dialog">
@@ -58,7 +76,7 @@
                                     <h2 class="modal-title">Student Credentials</h2>
                                 </div>
                                 <div class="modal-body">
-                                    <h4>Enter your Student ID.</h4>
+                                    <h4>Enter your Student ID :)</h4>
                                     <label for="fname">Student ID:</label><br>
                                     <input type="text" id="Sid" name="Sid"><br>
                                 </div>

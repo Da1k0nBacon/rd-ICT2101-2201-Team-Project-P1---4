@@ -45,32 +45,49 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Challenge()
         {
-            var CommandHistList = DataAccess.LoadCommandHist();
+
+            var CommandHistList = DataAccess.LoadCommandHist(int.Parse(HttpContext.Session.GetString("Sid")));
             ViewData["newSeqID"] = DataAccess.getNewSeqID();
+
+            
             return View(CommandHistList);
         }
 
         public JsonResult SendChallengeData(string cmdSeqList)
         {
             var jsonList = JsonConvert.DeserializeObject<dynamic>(cmdSeqList);
-
+            var commands = new List<string>();
             List<command> cmdList = new List<command>();
             foreach (var jsonItem in jsonList)
             {
                 command cmd = new command();
                 cmd.Direction = jsonItem.Direction;
+                commands.Add(cmd.Direction);
                 cmd.Student_Sid = jsonItem.Student_Sid;
                 cmd.OrderNum = jsonItem.OrderNum;
                 cmd.Mapdata_Mid = jsonItem.Mapdata_Mid;
                 cmd.CommandSeq_id = jsonItem.CommandSeq_id;
                 cmdList.Add(cmd);
             }
-            DataAccess.SaveCommandHistory(cmdList);
+            string allCommand = string.Join(",", commands);
+            allCommand = "@" + allCommand + ",";
+            FileInfo fi = new FileInfo(@"wwwroot/sample.txt");
+            using (TextWriter txtWriter = new StreamWriter(fi.Open(FileMode.Truncate)))
+            {
+                txtWriter.Write(allCommand);
+            }
+            //DataAccess.SaveCommandHistory(cmdList);
+
 
             return Json(jsonList);
 
         }
-
+        public IActionResult storage()
+        {
+            string[] text = System.IO.File.ReadAllLines("wwwroot/sample.txt");
+            ViewBag.Data = text;
+            return View();
+        }
 
         public IActionResult EditMap()
         {
@@ -105,7 +122,7 @@ namespace _2201_Robot_Car_Website.Controllers
         {
             var mapDat = JsonConvert.DeserializeObject<dynamic>(mapData);
             int teacherId = int.Parse(HttpContext.Session.GetString("Tid"));
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
             {
                 string Query = "INSERT INTO mapdata (Mid, Grid1,Grid2,Grid3,Grid4,Grid5,Grid6,Grid7,Grid8,Grid9,Grid10,Grid11,Grid12,Grid13,Grid14,Grid15,Grid16,Teacher_TID)" +
                     "VALUES('1','" + mapDat[0]["Grid1"] + "','" + mapDat[0]["Grid2"] + "','" + mapDat[0]["Grid3"] + "','" + mapDat[0]["Grid4"] + "','" + mapDat[0]["Grid5"]
