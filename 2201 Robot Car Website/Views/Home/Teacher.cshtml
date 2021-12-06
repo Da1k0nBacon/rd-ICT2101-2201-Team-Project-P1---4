@@ -108,26 +108,7 @@
                 <canvas id="taskStudentAt" width="200" height="80"></canvas>
             </td>
         </tr>
-        <tr>
-            <td colspan="4">
-                @{
-                    var listitems = new List<SelectListItem>();
-                    listitems.Add(new SelectListItem() { Text = "ABC", Value = "ABC" });
-                    listitems.Add(new SelectListItem() { Text = "EFG", Value = "EFG" });
-                }
-                @Html.DropDownList("DropDownListValue", listitems,new { onchange = "showData(this);" })
-
-            </td>
-        </tr>
     </table>
-
-     @*@Html.Partial("_RobotData")*@
-     <div id="robotData">
-     @{
-          Html.RenderPartial("_RobotData");   
-        }
-     </div>
-
 </div>
 
 

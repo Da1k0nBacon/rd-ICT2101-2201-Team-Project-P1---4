@@ -6,4 +6,39 @@
 
 <div class="text-center">
     <h1 class="display-4">Dis is da Student Results page</h1>
+    
+    @{
+        var listitems = new List<SelectListItem>();
+
+        listitems.Add(new SelectListItem() { Text = "ABC", Value = "ABC" });
+        listitems.Add(new SelectListItem() { Text = "EFG", Value = "EFG" });
+    }
+    @Html.DropDownList("DropDownListValue", listitems,new { onchange = "showData(this);" })
+   
+
+     <div id="stdentData">
+     @{
+          Html.RenderPartial("_StudData");   
+        }
+     </div>
 </div>
+<script>
+    
+     function showData(val){
+        console.log("Hi: ", val.value);
+        $.ajax({  
+            url: 'getStudData',
+            data: {'sClass' : val.value}, 
+            type: 'POST', 
+            cache: false,
+            success: function (response) {  
+                 $("#stdentData").html(response);
+            },    
+            failure: function (jqXHR, textStatus, errorThrown) {                  
+                alert("Status: " + jqXHR.status + "; Error: " + jqXHR.responseText); // Display error message  
+                console.log("Emo");
+            }  
+        });  
+
+     }
+</script>

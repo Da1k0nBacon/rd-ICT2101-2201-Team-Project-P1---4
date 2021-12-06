@@ -47,6 +47,7 @@ namespace _2201_Robot_Car_Website.Controllers
             return View(CommandHistList);
         }
 
+
         public JsonResult SendChallengeData(string cmdSeqList)
         {
             var jsonList = JsonConvert.DeserializeObject<dynamic>(cmdSeqList);
@@ -76,75 +77,48 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Teacher()
         {
-            var StudentList = DataAccess.GetRobotData();
-            return View(StudentList);
+            return View();
         }
 
         public IActionResult StudentResult()
         {
-            return View();
+            var StudentList = DataAccess.GetStudData();
+            return View(StudentList);
         }
 
         public IActionResult loadingPage()
         {
             return View();
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        //[HttpPost]
-        //public ActionResult getRobot(Student sClass)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                (Student sClass)
-        //{
-        //    context.Students.Add(sClass);
-        //    context.SaveChanges();
-        //    string message = "SUCCESS";
-        //    return Json(new { Message = message, JsonRequestBehavior.AllowGet });
-        //}
-
-        //[HttpPost]
-        //public ActionResult Teacher([FromBody] Student sClass)
-        //{
-        //    string message = sClass.sClass;
-
-        //    var StudentList = DataAccess.GetRobotDataTest(message);
-
-        //    //Teacher(message);
-        //    //return Json(JsonSerializer.Serialize(StudentList));
-        //    return View("Teacher", StudentList); 
-        //}
-
-
         [HttpPost]
-        public ActionResult getRobot(string sClass)
+        public ActionResult getStudData(string sClass)
         {
             string message = sClass;
 
-            var StudentList = DataAccess.GetRobotDataTest(message);
+            var StudentList = DataAccess.GetStudDataTest(message);
 
-            //Teacher(message);
-            //return Json(JsonSerializer.Serialize(StudentList));
-            return PartialView("_RobotData", StudentList);
-            //return Json(new {StudentList = StudentList});
+            return PartialView("_StudData", StudentList);
 
         }
 
+        
 
 
-        [HttpGet]
-        public ActionResult getStudent()
+        public ActionResult RenderStudData()
         {
-            List<Student> students = new List<Student>();
-            students = context.Students.ToList();
-            //return Json(students, JsonRequestBehavior.AllowGet);
-            return Json(students);
+            return PartialView("_StudData");
         }
 
-        public ActionResult RenderRobotData()
+        public IActionResult StudentDetails()
         {
-            return PartialView("_RobotData");
+            return View();
         }
 
     }

@@ -16,11 +16,13 @@ namespace _2201_Robot_Car_Website.Models
 
         public string sClass { get; set; }
 
-        public int ConStatus { get; set; }
+        public int Completed { get; set; }
+
+        public int Pending { get; set; }
+
+        public int Sid { get; set; }
 
         public DbSet<Student> Students { get; set; }
-
-        
 
     }
 }

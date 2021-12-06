@@ -59,11 +59,11 @@ namespace _2201_Robot_Car_Website.Data
             }
         }
 
-        public static List<Student> GetRobotData()
+        public static List<Student> GetStudData()
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
-                string Query = "select s.StudentName, s.Class, s.Sid, r.Conn_Status from student s inner join robotdata r on s.Sid = r.Student_Sid";
+                string Query = "select s.StudentName, s.Class, s.Sid, sum(if(sc.Cleared_Status = 1, 1, 0)) as Completed, sum(if(sc.Cleared_Status = 0, 1, 0)) as Pending from student s inner join studentchallenge sc on s.Sid = sc.Student_Sid group by sc.Student_Sid";
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(Query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -74,7 +74,8 @@ namespace _2201_Robot_Car_Website.Data
                     Student student = new Student();
                     student.Class = reader["Class"].ToString();
                     student.StudentName = reader["StudentName"].ToString();
-                    student.ConStatus = int.Parse(reader["Conn_Status"].ToString());
+                    student.Completed = int.Parse(reader["Completed"].ToString());
+                    student.Pending = int.Parse(reader["Pending"].ToString());
 
                     Studentlist.Add(student);
                 }
@@ -83,11 +84,11 @@ namespace _2201_Robot_Car_Website.Data
             }
         }
 
-        public static List<Student> GetRobotDataTest(string Class)
+        public static List<Student> GetStudDataTest(string Class)
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
-                string Query = "select s.StudentName, s.Class, s.Sid, r.Conn_Status from student s inner join robotdata r on s.Sid = r.Student_Sid where s.Class = '" + Class + "'";
+                string Query = "select s.StudentName, s.Class, s.Sid, sum(if(sc.Cleared_Status = 1, 1, 0)) as Completed, sum(if(sc.Cleared_Status = 0, 1, 0)) as Pending from student s inner join studentchallenge sc on s.Sid = sc.Student_Sid where s.Class = '" + Class + "' group by sc.Student_Sid";
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(Query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -98,12 +99,36 @@ namespace _2201_Robot_Car_Website.Data
                     Student student = new Student();
                     student.Class = reader["Class"].ToString();
                     student.StudentName = reader["StudentName"].ToString();
-                    student.ConStatus = int.Parse(reader["Conn_Status"].ToString());
+                    student.Completed = int.Parse(reader["Completed"].ToString());
+                    student.Pending = int.Parse(reader["Pending"].ToString());
+                    student.Sid = int.Parse(reader["Sid"].ToString());
 
                     Studentlist.Add(student);
                 }
                 con.Close();
                 return Studentlist;
+            }
+        }
+
+        public static List<Student> GetClass()
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string Query = "select Class from class";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(Query, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Student> classlist = new List<Student>();
+                while (reader.Read())
+                {
+                    Student student = new Student();
+                    student.Class = reader["Class"].ToString();
+
+                    classlist.Add(student);
+                }
+                con.Close();
+                return classlist;
             }
         }
 
