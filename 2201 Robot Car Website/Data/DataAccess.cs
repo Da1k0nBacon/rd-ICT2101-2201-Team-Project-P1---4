@@ -58,7 +58,7 @@ namespace _2201_Robot_Car_Website.Data
 
         public static TeacherClass getTeacherInfo(int tid, string pw)
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
                 string query = "SELECT * FROM teacher WHERE TID = @teacherid AND Password = @pw";
                 con.Open();
