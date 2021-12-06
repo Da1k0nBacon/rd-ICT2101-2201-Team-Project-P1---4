@@ -232,9 +232,10 @@
             }
 
             var jsonList = [];
+            var studentid = @Context.Session.GetString("Sid");
             for (var i = 0; i < cmdSeqList.length; i++) 
             {
-                    jsonList.push({'Direction' : cmdSeqList[i] , 'CommandSeq_id' : 1 , 'OrderNum' :  i , 'Student_Sid' : 1, 'Mapdata_Mid' : 10});
+                    jsonList.push({'Direction' : cmdSeqList[i] , 'CommandSeq_id' : 1 , 'OrderNum' :  i , 'Student_Sid' : studentid, 'Mapdata_Mid' : 1});
             }
             const jsonString = JSON.stringify(jsonList);
 
