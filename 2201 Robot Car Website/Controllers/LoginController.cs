@@ -5,14 +5,8 @@ using _2201_Robot_Car_Website.Data;
 
 namespace _2201_Robot_Car_Website.Controllers
 {
-    public class Login : Controller
+    public class LoginController : Controller
     {
-        private readonly ILogger<Login> _logger;
-
-        public Login(ILogger<Login> logger)
-        {
-            _logger = logger;
-        }
         [HttpGet]
         public IActionResult LoginMode()
         {
@@ -20,14 +14,13 @@ namespace _2201_Robot_Car_Website.Controllers
         }
 
         [HttpPost]
-        public IActionResult LoginMode(Student student)
+        public ActionResult GoStudent(string Sid)
         {
-            //need edit
-            return RedirectToAction("Student", "Home");
-
-            return View();
+            HttpContext.Session.SetString("Sid", Sid);
+            System.Diagnostics.Debug.WriteLine(HttpContext.Session.GetString("Sid"));
+            
+            return RedirectToAction("Student","Home");
         }
-
 
     }
 }
