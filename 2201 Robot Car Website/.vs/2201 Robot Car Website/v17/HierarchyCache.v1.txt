@@ -1,0 +1,327 @@
+﻿++Solution '2201 Robot Car Website' ‎(1 of 1 project)
+i:{00000000-0000-0000-0000-000000000000}:2201 Robot Car Website.sln
+++2201 Robot Car Website
+i:{00000000-0000-0000-0000-000000000000}:2201 Robot Car Website
+++Connected Services 
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:>1263
+++SQL Server Database
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:>1287
+++Dependencies
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:>1262
+++Analyzers
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:analyzers
+++Frameworks
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:frameworks
+++Packages
+++Properties
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\properties\
+++wwwroot
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\
+++css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\css\
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\
+++image
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\image\
+++img
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\img\
+++js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\js\
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\
+++lib
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\
+++pic
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\pic\
+++sounds
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\sounds\
+++style
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\style\
+++dashboard.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\style\dashboard.css
+++gameUI.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\style\gameui.css
+++favicon.ico
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\favicon.ico
+++sample.txt
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\sample.txt
+++Controllers
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\controllers\
+++HomeController.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\controllers\homecontroller.cs
+++Data
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\data\
+++DataAccess.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\data\dataaccess.cs
+++Models
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\models\
+++Views
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\
+++Home
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\
+++Challenge.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\challenge.cshtml
+++DataFromMSP.cshtml
+++EditMap.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\editmap.cshtml
+++Index.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\index.cshtml
+++loadingPage.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\loadingpage.cshtml
+++Privacy.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\privacy.cshtml
+++storage.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\storage.cshtml
+++Student.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\student.cshtml
+++StudentResult.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\studentresult.cshtml
+++Teacher.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\teacher.cshtml
+++Tutorial.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\home\tutorial.cshtml
+++Shared
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\shared\
+++_ViewImports.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\_viewimports.cshtml
+++_ViewStart.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\_viewstart.cshtml
+++appsettings.json
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\appsettings.json
+++appsettings.Development.json
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\appsettings.development.json
+++Program.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\program.cs
+++SQL Server Database dependency is detected
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:>1288
+++Microsoft.AspNetCore.Analyzers
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.Internal.SourceGenerator.Transport
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.internal.sourcegenerator.transport.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+++Microsoft.Extensions.Logging.Generators
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\sdk\6.0.100\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++System.Text.Json.SourceGeneration
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.0\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.AspNetCore.App
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\microsoft.aspnetcore.app
+++Microsoft.NETCore.App
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\microsoft.netcore.app
+++Chart.Mvc (1.0.0.2)
+++Microsoft.EntityFrameworkCore.Tools (5.0.10)
+++MySql.EntityFrameworkCore (5.0.3)
+++PublishProfiles
+++launchSettings.json
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\properties\launchsettings.json
+++EditMap.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\css\editmap.css
+++site.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\css\site.css
+++bin.png
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\image\bin.png
+++Capture.JPG
+++ColorCarparking.jpg
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\img\colorcarparking.jpg
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\pic\colorcarparking.jpg
+++logo.JPG
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\pic\logo.jpg
+++TreasureHunt.png
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\img\treasurehunt.png
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\pic\treasurehunt.png
+++site.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\js\site.js
+++bootstrap
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\
+++jquery
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery\
+++jquery-validation
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation\
+++jquery-validation-unobtrusive
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation-unobtrusive\
+++animatedCar.gif
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\pic\animatedcar.gif
+++child.png
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\pic\child.png
+++road.png
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\pic\road.png
+++scenery.jpg
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\pic\scenery.jpg
+++challenges.ogg
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\sounds\challenges.ogg
+++play.ogg
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\sounds\play.ogg
+++squid.ogg
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\sounds\squid.ogg
+++tutorial.ogg
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\sounds\tutorial.ogg
+++videoplayback.3gpp
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\sounds\videoplayback.3gpp
+++ErrorViewModel.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\models\errorviewmodel.cs
+++Student.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\models\student.cs
+++_Layout.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\shared\_layout.cshtml
+++_ValidationScriptsPartial.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\shared\_validationscriptspartial.cshtml
+++Error.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\shared\error.cshtml
+++FolderProfile.pubxml
+++dist
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery\dist\
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation\dist\
+++LICENSE
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\license
+++LICENSE.txt
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery\license.txt
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation-unobtrusive\license.txt
+++LICENSE.md
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation\license.md
+++jquery.validate.unobtrusive.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+++_Layout.cshtml.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\shared\_layout.cshtml.css
+++jquery.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery\dist\jquery.js
+++additional-methods.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation\dist\additional-methods.js
+++jquery.validate.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+++jquery.validate.unobtrusive.min.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+++bootstrap.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+++bootstrap-grid.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+++bootstrap-reboot.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+++bootstrap-utilities.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+++bootstrap.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+++jquery.min.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery\dist\jquery.min.js
+++additional-methods.min.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+++jquery.validate.min.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+++bootstrap.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+++bootstrap.min.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+++bootstrap.rtl.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+++bootstrap-grid.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+++bootstrap-grid.min.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+++bootstrap-grid.rtl.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+++bootstrap-reboot.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+++bootstrap-reboot.min.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+++bootstrap-reboot.rtl.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+++bootstrap-utilities.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+++bootstrap-utilities.min.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+++bootstrap-utilities.rtl.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+++bootstrap.bundle.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+++bootstrap.esm.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+++bootstrap.js.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+++bootstrap.min.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+++jquery.min.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\jquery\dist\jquery.min.map
+++bootstrap.min.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+++bootstrap.rtl.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+++bootstrap.rtl.min.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+++bootstrap-grid.min.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+++bootstrap-grid.rtl.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+++bootstrap-grid.rtl.min.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+++bootstrap-reboot.min.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+++bootstrap-reboot.rtl.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+++bootstrap-reboot.rtl.min.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+++bootstrap-utilities.min.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+++bootstrap-utilities.rtl.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+++bootstrap-utilities.rtl.min.css
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+++bootstrap.bundle.js.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+++bootstrap.bundle.min.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+++bootstrap.esm.js.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+++bootstrap.esm.min.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+++bootstrap.min.js.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+++bootstrap.rtl.min.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+++bootstrap-grid.rtl.min.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+++bootstrap-reboot.rtl.min.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+++bootstrap-utilities.rtl.min.css.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+++bootstrap.bundle.min.js.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+++bootstrap.esm.min.js.map
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+++command.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\models\command.cs
+++Newtonsoft.Json (13.0.1)
+++New Text Document.txt
+++Challenge - Copy.cshtml
+++storage - Copy.cshtml
+++dataFromMSP.cshtml
+++_RobotData.cshtml
+++LoginController.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\controllers\logincontroller.cs
+++Teacher.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\models\teacher.cs
+++Login
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\login\
+++LoginMode.cshtml
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\views\login\loginmode.cshtml
+++logo.jfif
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\img\logo.jfif
+++mapdata.cs
+++EditMapController.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\controllers\editmapcontroller.cs
+++Map.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\models\map.cs
+++TeacherClass.cs
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\models\teacherclass.cs
+++EditMap.js
+i:{e9161094-4d90-4c16-9793-f9a86315c0bd}:c:\users\yu hui\documents\github\rd-ict2101-2201-team-project-p1---4\2201 robot car website\wwwroot\js\editmap.js

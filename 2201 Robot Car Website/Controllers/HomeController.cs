@@ -53,19 +53,34 @@ namespace _2201_Robot_Car_Website.Controllers
         public JsonResult SendChallengeData(string cmdSeqList)
         {
             var jsonList = JsonConvert.DeserializeObject<dynamic>(cmdSeqList);
-            var commands = new List<string>();
+            var commands = new List<int>();
             List<command> cmdList = new List<command>();
+            int type = 0;
             foreach (var jsonItem in jsonList)
             {
                 command cmd = new command();
                 cmd.Direction = jsonItem.Direction;
-                commands.Add(cmd.Direction);
+                if(cmd.Direction == "Up")
+                {
+                    type = 0;
+                }
+                else if (cmd.Direction == "Left")
+                {
+                    type = 1;
+                }
+                else if (cmd.Direction == "Right")
+                {
+                    type = 2;
+                }
+                commands.Add(type);
                 cmd.Student_Sid = jsonItem.Student_Sid;
                 cmd.OrderNum = jsonItem.OrderNum;
                 cmd.Mapdata_Mid = jsonItem.Mapdata_Mid;
                 cmd.CommandSeq_id = jsonItem.CommandSeq_id;
                 cmdList.Add(cmd);
             }
+
+            //for 04 sake 0 (Up),1 (Left),2 (Right)
             string allCommand = string.Join(",", commands);
             allCommand = "@" + allCommand + ",";
             FileInfo fi = new FileInfo(@"wwwroot/sample.txt");
@@ -73,8 +88,16 @@ namespace _2201_Robot_Car_Website.Controllers
             {
                 txtWriter.Write(allCommand);
             }
+
+            //for 01 sake
             //DataAccess.SaveCommandHistory(cmdList);
 
+            
+            string[] words = allCommand.Split(',');
+            foreach (var word in words)
+            {
+                System.Diagnostics.Debug.WriteLine(word);
+            }
 
             return Json(jsonList);
 

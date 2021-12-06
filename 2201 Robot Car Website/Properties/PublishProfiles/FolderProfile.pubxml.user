@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Yu Hui\Documents\GitHub\rd-ICT2101-2201-Team-Project-P1---4\2201 Robot Car Website\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2021-12-06T13:45:14.4857377Z;True|2021-12-06T20:47:37.0498935+08:00;</History>
+  </PropertyGroup>
+</Project>
