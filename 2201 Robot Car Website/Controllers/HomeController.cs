@@ -17,8 +17,6 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Index()
         {
-            
-
             var StudentList = DataAccess.GetClasses();
             return View(StudentList);
         }
@@ -80,7 +78,10 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Teacher()
         {
-            return View();
+            string teacherId = HttpContext.Session.GetString("Tid");
+            string pw = HttpContext.Session.GetString("pw");
+            var teacher = DataAccess.getTeacherInfo(int.Parse(teacherId),pw);
+            return View(teacher);
         }
 
         public IActionResult StudentResult()

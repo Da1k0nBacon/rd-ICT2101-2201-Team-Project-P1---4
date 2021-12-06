@@ -12,7 +12,7 @@ namespace _2201_Robot_Car_Website.Data
         
         public static List<Student> GetClasses()
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
             {
                 string Query = "SELECT StudentName, Class  from Student";
                 con.Open();
@@ -35,7 +35,7 @@ namespace _2201_Robot_Car_Website.Data
 
         public static Student getstudentInfo(int sid)
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
             {
                 string query = "SELECT * FROM Student WHERE Sid = @studentid";
                 con.Open();
@@ -52,10 +52,43 @@ namespace _2201_Robot_Car_Website.Data
                 }
                 con.Close();
 
-
-
                 return student;
             }
+        }
+
+        public static TeacherClass getTeacherInfo(int tid, string pw)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            {
+                string query = "SELECT * FROM teacher WHERE TID = @teacherid AND Password = @pw";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@teacherid", tid);
+                cmd.Parameters.AddWithValue("@pw", pw);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                con.Close();
+                TeacherClass tClass = new TeacherClass();
+                Teacher teacher = new Teacher();
+                if (reader.HasRows)
+                {
+                    query = "SELECT Distinct(tc.Class) FROM teacherClass tc, teacher t WHERE  t.TID = tc.TID AND t.TID = @TID;";
+                    cmd.Parameters.AddWithValue("@TID", tid);
+                    cmd = new MySqlCommand(query, con);
+                    reader = cmd.ExecuteReader();
+
+                    
+                    List<TeacherClass> tClassList = new List<TeacherClass>();
+                    while (reader.Read())
+                    {
+                        tClass.Class = reader["Class"].ToString();
+
+                        tClassList.Add(tClass);
+                    }
+                }
+                con.Close();
+                return tClass;
+            }
+            
         }
         public static List<command> LoadCommandHist()
         {

@@ -22,5 +22,16 @@ namespace _2201_Robot_Car_Website.Controllers
             return RedirectToAction("Student","Home");
         }
 
+        [HttpPost]
+        public ActionResult GoTeacher(string TID, string Password)
+        {
+            HttpContext.Session.SetString("Tid", TID);
+            HttpContext.Session.SetString("pw", Password);
+            System.Diagnostics.Debug.WriteLine(HttpContext.Session.GetString("Tid"));
+            System.Diagnostics.Debug.WriteLine(HttpContext.Session.GetString("pw"));
+
+            return RedirectToAction("Teacher", "Home");
+        }
+
     }
 }
