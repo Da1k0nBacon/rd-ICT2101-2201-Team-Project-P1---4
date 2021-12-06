@@ -75,8 +75,8 @@ namespace _2201_Robot_Car_Website.Controllers
 
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
-                string Query = "INSERT INTO mapdata (Mid,Grid1,Grid2,Grid3,Grid4,Grid5,Grid6,Grid7,Grid8,Grid9,Grid10,Grid11,Grid12,Grid13,Grid14,Grid15,Grid16)" +
-                    "VALUES('1','" + mapDat[0]["Grid1"] + "','" + mapDat[0]["Grid2"] + "','" + mapDat[0]["Grid3"] + "','" + mapDat[0]["Grid4"] + "','" + mapDat[0]["Grid5"]
+                string Query = "INSERT INTO mapdata (Grid1,Grid2,Grid3,Grid4,Grid5,Grid6,Grid7,Grid8,Grid9,Grid10,Grid11,Grid12,Grid13,Grid14,Grid15,Grid16)" +
+                    "VALUES('" + mapDat[0]["Grid1"] + "','" + mapDat[0]["Grid2"] + "','" + mapDat[0]["Grid3"] + "','" + mapDat[0]["Grid4"] + "','" + mapDat[0]["Grid5"]
                     + "','" + mapDat[0]["Grid6"] + "','" + mapDat[0]["Grid7"] + "','" + mapDat[0]["Grid8"] + "','" + mapDat[0]["Grid9"] + "','" + mapDat[0]["Grid10"]
                     + "','" + mapDat[0]["Grid11"] + "','" + mapDat[0]["Grid12"] + "','" + mapDat[0]["Grid13"] + "','" + mapDat[0]["Grid14"] + "','" + mapDat[0]["Grid15"]
                     + "','" + mapDat[0]["Grid16"] + "')";

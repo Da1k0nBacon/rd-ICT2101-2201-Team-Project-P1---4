@@ -1,4 +1,5 @@
-﻿var value = 0
+﻿var value = 0;
+var checker = 0;
 function increment(thisID) {
     value = parseInt(document.getElementById(thisID).value) + 1;
     if (value == 4) {
@@ -18,7 +19,9 @@ function increment(thisID) {
     }
     document.getElementById(thisID).value = value.toString();
 }
+
 function submit() {
+    checker = 0;
     var jsonList = [];
     jsonList.push({
         'Grid1': document.getElementById("1").value,
@@ -38,22 +41,33 @@ function submit() {
         'Grid15': document.getElementById("15").value,
         'Grid16': document.getElementById("16").value,
     })
-    const jsonString = JSON.stringify(jsonList);
-
-    console.log(jsonString);
-
-    $.ajax({
-        type: "POST",
-        url: 'SendMapData',
-        dataType: "json",
-        data: { 'mapData': jsonString },
-        cache: false,
-        success: function (data) {
-            alert("Saved to DB");
-        },
-        failure: function (data) {
-            alert("Failed to Save");
+    for (var key of Object.keys(jsonList[0])) {
+        if (jsonList[0][key] == 2) {
+            checker += 1;
         }
-    });
+    }
+    if (checker > 1) {
+        alert("You can only have one player!");
+    }
+    else {
+        const jsonString = JSON.stringify(jsonList);
+
+        console.log(jsonString);
+
+        $.ajax({
+            type: "POST",
+            url: 'SendMapData',
+            dataType: "json",
+            data: { 'mapData': jsonString },
+            cache: false,
+            success: function (data) {
+                alert("Saved to DB");
+            },
+            failure: function (data) {
+                alert("Failed to Save");
+            }
+        });
+    }
+    
 
 }
