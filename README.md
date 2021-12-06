@@ -26,3 +26,11 @@ ICT2101-Team-P1-4 Robot Car Website System Project.
 <p style="text-align=justify">This tests are derived via the System State Diagram which is made from the Use Case Diagram</p>
 
 #White Box Testing
+<p style="text-align=justify">This is done by first coming up with test cases manually for code coverage</p>
+
+<p style="text-align=justify">After coming up with the code coverage test cases the team came up with test cases for branch coverage</p>
+
+![CFG](https://user-images.githubusercontent.com/73848081/144922546-6de54253-8c70-4001-876c-abfff27c20de.png)
+
+<p style="text-align=justify">Finally the team calculate the Cyclomatic complexity: V(G) = e - n + 2(p) which resulted in 13 - 12 + 2 = 3 paths which shows in order to cover enough paths the team would need to cover at least 3 paths this is shown in the test cases below</p>
+
