@@ -25,7 +25,7 @@ ICT2101-Team-P1-4 Robot Car Website System Project.
 
 <h1>User Acceptance Test</h1>
 <p style="text-align=justify">This tests are derived via the System State Diagram which is made from the Use Case Diagram</p>
-Please refer to the [UAT Video](https://youtu.be/x71f-snWF9s) here.
+Please refer to the [UAT Video](https://youtu.be/3hbSW6w0uaI) here.
 
 <h1>White Box Testing</h1>
 <p style="text-align=justify">This is done by first coming up with test cases manually for code coverage</p>
