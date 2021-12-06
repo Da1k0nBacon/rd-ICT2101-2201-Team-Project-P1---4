@@ -24,17 +24,17 @@ ICT2101-Team-P1-4 Robot Car Website System Project.
 
 <h1>User Acceptance Test</h1>
 <p style="text-align=justify">This tests are derived via the System State Diagram which is made from the Use Case Diagram</p>
-Please refer to the UAT Video here.
-![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/x71f-snWF9s)
 
 <h1>White Box Testing</h1>
 <p style="text-align=justify">This is done by first coming up with test cases manually for code coverage</p>
 ![image](https://user-images.githubusercontent.com/73848081/144934450-2bad35ac-9297-4ea2-ba11-cbae90e47cf8.png)
+The first test derived wrong ID or wrong password which is placed in as an argument of getTeacherinfo() which will cover from line 84 - 93. The second test will test with valid ID and password. If the Teacher database is not empty this covers 97 - 107.
 
 
 <p style="text-align=justify">After coming up with the code coverage test cases the team came up with test cases for branch coverage</p>
+Branch Coverage will be tested with an empty database as it is the only branch.
 
 ![CFG](https://user-images.githubusercontent.com/73848081/144922546-6de54253-8c70-4001-876c-abfff27c20de.png)
 
-<p style="text-align=justify">Finally the team calculate the Cyclomatic complexity: V(G) = e - n + 2(p) which resulted in 13 - 12 + 2 = 3 paths which shows in order to cover enough paths the team would need to cover at least 3 paths this is shown in the test cases below</p>
+<p style="text-align=justify">Finally the team calculate the Cyclomatic complexity: V(G) = e - n + 2(p) which resulted in 13 - 12 + 2 = 3 paths which shows in order to cover enough paths the team would need to cover at least 3 paths this is shown in the test cases below With this the only path left to test is the path that covers if reader is not performing Read() to assign values the the object's attributes.</p>
 
