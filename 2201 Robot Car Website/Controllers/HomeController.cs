@@ -45,6 +45,7 @@ namespace _2201_Robot_Car_Website.Controllers
         public IActionResult Challenge()
         {
             var CommandHistList = DataAccess.LoadCommandHist();
+            ViewData["newSeqID"] = DataAccess.getNewSeqID();
             return View(CommandHistList);
         }
 
