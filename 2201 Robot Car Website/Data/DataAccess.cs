@@ -12,7 +12,7 @@ namespace _2201_Robot_Car_Website.Data
 
         public static List<Student> GetClasses()
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
             {
                 string Query = "SELECT StudentName, Class  from Student";
                 con.Open();
@@ -34,13 +34,72 @@ namespace _2201_Robot_Car_Website.Data
         }
 
 
-        public static List<command> LoadCommandHist()
+        public static Student getstudentInfo(int sid)
+
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
             {
-                string Query = "SELECT  *  from command WHERE Student_Sid = '" + "1" + "' ORDER BY CommandSeq_id, OrderNum";
+                string query = "SELECT * FROM Student WHERE Sid = @studentid";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@studentid", sid);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Student student = new Student();
+                while (reader.Read())
+                {
+                    student.Class = reader["Class"].ToString();
+                    student.StudentName = reader["StudentName"].ToString();
+
+                }
+                con.Close();
+
+                return student;
+            }
+        }
+
+        public static TeacherClass getTeacherInfo(int tid, string pw)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            {
+                string query = "SELECT * FROM teacher WHERE TID = @teacherid AND Password = @pw";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@teacherid", tid);
+                cmd.Parameters.AddWithValue("@pw", pw);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                con.Close();
+                TeacherClass tClass = new TeacherClass();
+                Teacher teacher = new Teacher();
+                if (reader.HasRows)
+                {
+                    query = "SELECT Distinct(tc.Class) FROM teacherClass tc, teacher t WHERE  t.TID = tc.TID AND t.TID = @TID;";
+                    cmd.Parameters.AddWithValue("@TID", tid);
+                    cmd = new MySqlCommand(query, con);
+                    reader = cmd.ExecuteReader();
+
+                    
+                    List<TeacherClass> tClassList = new List<TeacherClass>();
+                    while (reader.Read())
+                    {
+                        tClass.Class = reader["Class"].ToString();
+
+                        tClassList.Add(tClass);
+                    }
+                }
+                con.Close();
+                return tClass;
+            }
+            
+        }
+        public static List<command> LoadCommandHist(int sid)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            {
+                string Query = "SELECT  *  from command WHERE Student_Sid = @studentid ORDER BY CommandSeq_id, OrderNum";
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(Query, con);
+                cmd.Parameters.AddWithValue("@studentid", sid);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 List<command> CommandHistList = new List<command>();
@@ -59,6 +118,7 @@ namespace _2201_Robot_Car_Website.Data
                 return CommandHistList;
             }
         }
+
 
         public static List<Student> GetStudData()
         {
@@ -131,11 +191,33 @@ namespace _2201_Robot_Car_Website.Data
                 con.Close();
                 return classlist;
             }
+
+        public static int getNewSeqID()
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            {
+                string queryNewSeqID = "SELECT  MAX(CommandSeq_id) as MAX from command";
+                con.Open();
+                MySqlCommand NewSeqCmd = new MySqlCommand(queryNewSeqID, con);
+                MySqlDataReader readSeqID = NewSeqCmd.ExecuteReader();
+                command cmd = new command();
+                while (readSeqID.Read())
+                {
+                    cmd.CommandSeq_id = (int)readSeqID["MAX"] + 1;
+                    
+                }
+                int newSeqID = cmd.CommandSeq_id;
+                con.Close();
+                return newSeqID;
+
+            }
+                
+
         }
 
         public static void SaveCommandHistory(List<command> cmd)
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
             {
                 string InsertSql = "INSERT INTO command VALUES (@Direction, @CommandSeq_id, @OrderNum, @Student_Sid, @Mapdata_Mid)";
                 con.Open();

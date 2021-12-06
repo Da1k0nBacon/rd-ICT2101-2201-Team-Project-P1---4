@@ -6,6 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(30);
+});
 
 
 
@@ -20,15 +25,19 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles();   
 
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
+app.UseSession();
+
+app.UseEndpoints(endpoints => {
+    endpoints.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=LoginMode}/{id?}");
+});
 
 
 app.Run();

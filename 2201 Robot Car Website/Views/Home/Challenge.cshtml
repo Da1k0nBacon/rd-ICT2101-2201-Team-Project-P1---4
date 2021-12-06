@@ -83,43 +83,51 @@
                 <div id="mapDiv"  style="background-color:white">Map</div>
             </td>
             <td rowspan="3">
-                <canvas id="myCanvas" width="400" height="400" style="background-color:white"></canvas><br />
-                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />
+              @*  <canvas id="myCanvas" width="400" height="400" style="background-color:white"></canvas><br />
+                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />*@
                 <div class="card bg-light">
-                    <div class="card-body text-center">
+                  @*  <div class="card-body text-center">
                         <label id="connectionStatus">Connected</label>
-                    </div>
+                    </div>*@
                 </div>
             </td>
             <td rowspan="3">
                 @*<canvas id="myCanvas" width="300" height="400" style="background-color:white"></canvas><br />
                 <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />*@
+                
                 <div class="CommandHistory" id="CommandHistory">
-                        <label>Command History<br></label>
+                        <label style="background-color: White">Command History<br></label>
+                        <div class="CommandContainer" id="CommandContainer">
                         @{
-                            int currentSeqID = Model[0].CommandSeq_id;
-                            string CommandSeq = "";
+                                //Try to load if any data
+                                try
+                                {
+                                    int currentSeqID = Model[0].CommandSeq_id;
+                                    string CommandSeq = "";
 
-                            foreach(var cmdEntry in Model)
-                            {
-                                int entrySeqID = cmdEntry.CommandSeq_id;
-                                if(entrySeqID == currentSeqID)
-                                {
-                                    CommandSeq += cmdEntry.Direction + " ";
-                                }
-                                else
-                                {
+                                    foreach(var cmdEntry in Model)
+                                    {
+                                        int entrySeqID = cmdEntry.CommandSeq_id;
+                                        if(entrySeqID == currentSeqID)
+                                        {
+                                            CommandSeq += cmdEntry.Direction + " ";
+                                        }
+                                        else
+                                        {
+                                            <div id="ComHistEntry" class="ComHistEntry">@CommandSeq</div>
+                                            CommandSeq = "";
+                                            CommandSeq += cmdEntry.Direction + " ";
+                                            currentSeqID = cmdEntry.CommandSeq_id;
+                                        }
+                                    }
                                     <div id="ComHistEntry" class="ComHistEntry">@CommandSeq</div>
-                                    CommandSeq = "";
-                                    CommandSeq += cmdEntry.Direction + " ";
-                                    currentSeqID = cmdEntry.CommandSeq_id;
                                 }
-                            }
-                            <div id="ComHistEntry" class="ComHistEntry">@CommandSeq</div>
-                            
-
-                            
+                                catch(ArgumentOutOfRangeException e)
+                                {
+                                    //do nothing
+                                }
                         }
+                        </div>
                     </div>
                 </div>
             </td>
@@ -132,6 +140,7 @@
                     </audio>
                       <div id="command" class="text-center">
                                   <input type="button" class="game-button" value="Up" id="up" />
+
                             &nbsp;<input type="button" class="game-button red" value="Left" id="left">
                             &nbsp;<input type="button" class="game-button green" value="Right" id="right">
                     </div>
@@ -253,4 +262,4 @@
                  div.innerHTML="";
 
          });
-</script> 
+</script>

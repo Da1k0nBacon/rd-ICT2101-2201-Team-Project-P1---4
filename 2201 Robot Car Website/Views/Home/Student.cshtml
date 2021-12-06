@@ -33,6 +33,9 @@ $('#videoHolder2').hover(
     autoplay when come to this page -->
 <audio id="my_audio" src="../sounds/videoplayback.3gpp" loop="loop" autoplay></audio>
 
+<h2>Id: @Context.Session.GetString("Sid")</h2>
+<h2>Name: @Context.Session.GetString("StudentName")</h2>
+<h2>Class: @Context.Session.GetString("StudentClass")</h2>
 <!--Render Image background-->
     <div class="fixed py-5">
          <img src="~/img/logo.jpg" alt="Some scenery" width="150">
