@@ -1,5 +1,4 @@
-# rd-ICT2101-2201-Team-Project-P1---4
-ICT 2101-2201 Robot Car Website System Project.
+ICT2101-Team-P1-4 Robot Car Website System Project.
 
 # Project Overview
 > <p style="text-align=justify">The Robot Car Website System is intended for primary school students to use solely for education purposes. The system deployed is an online web interface where students can easily access it using desktops or laptops. This project will be a follow-on product based on products such as Lego Mindstorms, however it is improved as for example with Lego Mindstorms, the programming needs to be done via connecting to the computer via a cable while for the Robot Car Website System, programming can be done wirelessly via Wi-Fi. The online web portal will be the central interface used by students to send commands to control the movement of the robot car and receive feedback on the robot car. Feedback received will be displayed out via the web portal. Also, on the web portal a student can create a profile while there will be a teacher account that will be able to check on the student’s progress and create challenges for students to complete. <br/>
@@ -12,3 +11,4 @@ ICT 2101-2201 Robot Car Website System Project.
 
 # Resources
 * Review [Wiki](https://github.com/Da1k0nBacon/rd-ICT2101-2201-Team-Project-P1---4/wiki) for more information about the project and team management
+
