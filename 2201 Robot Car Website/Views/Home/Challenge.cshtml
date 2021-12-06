@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </td>
-        </t r>
+        </tr>
         <tr>
             <td colspan="4">
                 <div id="heartbeat">
@@ -162,7 +162,8 @@
 	                    Your browser does not support the <code>audio</code> element.
                     </audio>
                       <div id="command" class="text-center">
-                                  <input type="button" class="game-button" value="Up" id="up"/>
+
+                                  <input type="button" class="game-button" value="Up" id="up" />
                             &nbsp;<input type="button" class="game-button red" value="Left" id="left">
                             &nbsp;<input type="button" class="game-button green" value="Right" id="right">
                     </div>
@@ -171,7 +172,7 @@
         </tr>
         <tr>
             <td colspan="4">
-                <div id="selectedCommand" style="background-color:white; overflow:scroll;" ></div><br />
+                <div id="selectedCommand" style="background-color:white; overflow:scroll;"></div><br />
                 <img id="removeCommand" src="\image\bin.png" />
                 <br/>
             </td>
@@ -243,65 +244,6 @@
       this.el.removeChild(evt.item);
     }
       });
-
-         //const ctx = document.getElementById('myCanvas').getContext('2d');
-         //const myChart = new Chart(ctx, {
-         //    type: 'line',
-         //    data: {
-         //        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-         //        datasets: [{
-         //            label: 'Speed',
-         //            data: [12, 19, 3, 5, 2, 3],
-         //            backgroundColor: [
-         //                'rgba(255, 99, 132, 0.2)'
-         //            ],
-         //            borderColor: [
-         //                'rgba(255, 99, 132, 1)'
-         //            ],
-         //            borderWidth: 1
-         //        }]
-         //    },
-         //    options: {
-         //        scales: {
-         //            y: {
-         //                beginAtZero: true
-         //            }
-         //        }
-         //    }
-         //});
-
-         //const distCtx = document.getElementById('distCanvas').getContext('2d');
-         //const distChart = new Chart(distCtx, {
-         //    type: 'horizontalBar',
-         //    data: {
-         //        labels: ['Distance'],
-         //        datasets: [{
-         //            label: 'Distance',
-         //            data: [12, 19, 3, 5, 2, 3],
-         //            backgroundColor: [
-         //                'rgba(255, 99, 132, 0.2)'
-         //            ],
-         //            borderColor: [
-         //                'rgba(255, 99, 132, 1)'
-         //            ],
-         //            borderWidth: 1
-         //        }]
-         //    },
-         //    options: {
-         //        indexAxis: 'y',
-         //        scales: {
-         //            x: {
-         //                beginAtZero: true
-         //            }
-         //        },
-         //        plugins: {
-         //  legend: {
-         //    position: 'right',
-         //  }
-         //}
-
-         //    }
-         //});
 
        $('#submit').on('click', function() {
             var div = document.getElementById('selectedCommand');

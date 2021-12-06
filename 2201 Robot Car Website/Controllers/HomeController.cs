@@ -2,18 +2,23 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using _2201_Robot_Car_Website.Data;
+using System.Data;
+using System.Text.Json;
 using Newtonsoft.Json;
+
 
 namespace _2201_Robot_Car_Website.Controllers
 {
     public class HomeController : Controller
     {
+        Student context = new Student();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
+
 
         public IActionResult Index()
         {
@@ -80,7 +85,8 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Teacher()
         {
-            return View();
+            var StudentList = DataAccess.GetRobotData();
+            return View(StudentList);
         }
 
         public IActionResult StudentResult()
@@ -110,6 +116,36 @@ namespace _2201_Robot_Car_Website.Controllers
             return View();
         }
        
-       
+
+        [HttpPost]
+        public ActionResult getRobot(string sClass)
+        {
+            string message = sClass;
+
+            var StudentList = DataAccess.GetRobotDataTest(message);
+
+            //Teacher(message);
+            //return Json(JsonSerializer.Serialize(StudentList));
+            return PartialView("_RobotData", StudentList);
+            //return Json(new {StudentList = StudentList});
+
+        }
+
+
+
+        [HttpGet]
+        public ActionResult getStudent()
+        {
+            List<Student> students = new List<Student>();
+            students = context.Students.ToList();
+            //return Json(students, JsonRequestBehavior.AllowGet);
+            return Json(students);
+        }
+
+        public ActionResult RenderRobotData()
+        {
+            return PartialView("_RobotData");
+        }
+
     }
 }
