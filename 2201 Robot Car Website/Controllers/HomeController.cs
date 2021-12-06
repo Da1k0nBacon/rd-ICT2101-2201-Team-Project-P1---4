@@ -17,6 +17,8 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Index()
         {
+            
+
             var StudentList = DataAccess.GetClasses();
             return View(StudentList);
         }
@@ -33,7 +35,13 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Student()
         {
-            return View();
+            string studentid = HttpContext.Session.GetString("Sid");
+            int id = int.Parse(studentid);
+            var student = DataAccess.getstudentInfo(id);
+            HttpContext.Session.SetString("StudentClass", student.Class);
+            HttpContext.Session.SetString("StudentName", student.StudentName);
+            //return RedirectToAction("Student");
+            return View(student);
         }
 
         public IActionResult Challenge()

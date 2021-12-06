@@ -9,6 +9,7 @@ namespace _2201_Robot_Car_Website.Data
 {
     public class DataAccess
     {
+        
         public static List<Student> GetClasses()
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
@@ -32,6 +33,28 @@ namespace _2201_Robot_Car_Website.Data
             }
         }
 
+        public static Student getstudentInfo(int sid)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string query = "SELECT * FROM Student WHERE Sid = @studentid";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@studentid", sid);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Student student = new Student();
+                while (reader.Read())
+                {
+                    student.Class = reader["Class"].ToString();
+                    student.StudentName = reader["StudentName"].ToString();
+
+                }
+                con.Close();
+
+                
+
+                return student;
         public static List<command> LoadCommandHist()
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
