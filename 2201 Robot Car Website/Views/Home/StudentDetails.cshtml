@@ -1,6 +1,79 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<_2201_Robot_Car_Website.Models.command>
+
 @{
+    List<command> cmdList = new List<command>();
+    try
+    {
+        var compareSeqID = Model[0].CommandSeq_id;
+        var compareMapID = Model[0].Mapdata_Mid;
+        string commandString = "";
+        
+        foreach (var item in Model)
+        {
+            var currentSeqID = item.CommandSeq_id;
+
+            if(currentSeqID == compareSeqID)
+            {
+                commandString += item.Direction + " ";
+                compareMapID = item.Mapdata_Mid;
+            }
+
+            else
+            {
+                command cmdItem = new command();
+                cmdItem.Direction = commandString;
+                cmdItem.CommandSeq_id = compareSeqID;
+                cmdItem.Mapdata_Mid = compareMapID;
+                cmdItem.Student_Sid = item.Student_Sid;
+                cmdList.Add(cmdItem);
+                commandString = "";
+                commandString += item.Direction + " ";
+                compareSeqID = currentSeqID;
+            }
+        }
+        command cmdItem2 = new command();
+        cmdItem2.Direction = commandString;
+        cmdItem2.CommandSeq_id = compareSeqID;
+        cmdItem2.Mapdata_Mid = compareMapID;
+        cmdItem2.Student_Sid = Model[0].Student_Sid;
+        cmdList.Add(cmdItem2);
+    }
+    catch(ArgumentOutOfRangeException e)
+    {
+        //do nothing
+    }
 
 }
+
+
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                <h3>Command Sequence</h3>
+            </th>
+            <th>
+                <h3>Map ID</h3>
+            </th>
+            <th>
+                <h3>Student ID</h3>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in cmdList)
+        {
+            <tr>
+                <td>
+                    <p>@item.Direction</p>
+                </td>
+                <td>
+                    <p>@item.Mapdata_Mid</p>
+                </td>
+                <td>
+                   <p>@item.Student_Sid</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

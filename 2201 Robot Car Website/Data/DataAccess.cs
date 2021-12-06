@@ -9,6 +9,7 @@ namespace _2201_Robot_Car_Website.Data
 {
     public class DataAccess
     {
+
         public static List<Student> GetClasses()
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
@@ -76,7 +77,7 @@ namespace _2201_Robot_Car_Website.Data
                     student.StudentName = reader["StudentName"].ToString();
                     student.Completed = int.Parse(reader["Completed"].ToString());
                     student.Pending = int.Parse(reader["Pending"].ToString());
-
+                    student.Sid = (int)reader["Sid"];
                     Studentlist.Add(student);
                 }
                 con.Close();
@@ -88,7 +89,7 @@ namespace _2201_Robot_Car_Website.Data
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
-                string Query = "select s.StudentName, s.Class, s.Sid, sum(if(sc.Cleared_Status = 1, 1, 0)) as Completed, sum(if(sc.Cleared_Status = 0, 1, 0)) as Pending from student s inner join studentchallenge sc on s.Sid = sc.Student_Sid where s.Class = '" + Class + "' group by sc.Student_Sid";
+                string Query = "select s.StudentName, s.Class, s.Sid, sum(if(sc.Cleared_Status = 1, 1, 0)) as Completed, sum(if(sc.Cleared_Status = 0, 1, 0)) as Pending from student s inner join studentchallenge sc on s.Sid = sc.Student_Sid group by sc.Student_Sid";
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(Query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -99,9 +100,9 @@ namespace _2201_Robot_Car_Website.Data
                     Student student = new Student();
                     student.Class = reader["Class"].ToString();
                     student.StudentName = reader["StudentName"].ToString();
-                    student.Completed = int.Parse(reader["Completed"].ToString());
-                    student.Pending = int.Parse(reader["Pending"].ToString());
-                    student.Sid = int.Parse(reader["Sid"].ToString());
+                    student.Completed = (int)reader["Completed"];
+                    student.Pending = (int)reader["Pending"];
+                    student.Sid = (int)reader["Sid"];
 
                     Studentlist.Add(student);
                 }
@@ -150,6 +151,32 @@ namespace _2201_Robot_Car_Website.Data
                     sqlCommand.ExecuteNonQuery();
                 }
                 con.Close();
+            }
+        }
+
+        public static List<command> getStudentCommandHist(int id)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string Query = "SELECT  *  from command WHERE Student_Sid = " + id + " ORDER BY CommandSeq_id, OrderNum";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(Query, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<command> CommandHistList = new List<command>();
+                while (reader.Read())
+                {
+                    command commandObj = new command();
+                    commandObj.Direction = reader["Direction"].ToString();
+                    commandObj.CommandSeq_id = (int)reader["CommandSeq_id"];
+                    commandObj.OrderNum = (int)reader["OrderNum"];
+                    commandObj.Mapdata_Mid = (int)reader["Mapdata_Mid"];
+                    commandObj.Student_Sid = (int)reader["Student_Sid"];
+
+                    CommandHistList.Add(commandObj);
+                }
+                con.Close();
+                return CommandHistList;
             }
         }
 

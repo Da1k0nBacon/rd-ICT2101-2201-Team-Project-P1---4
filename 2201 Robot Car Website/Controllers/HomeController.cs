@@ -116,9 +116,10 @@ namespace _2201_Robot_Car_Website.Controllers
             return PartialView("_StudData");
         }
 
-        public IActionResult StudentDetails()
+        public IActionResult StudentDetails(int id)
         {
-            return View();
+            var studentCommandHist = DataAccess.getStudentCommandHist(id);
+            return View(studentCommandHist);
         }
 
     }
