@@ -5,22 +5,22 @@ namespace _2201_Robot_Car_Website.Models
     public class Map
     {
         public int Mid { get; set; }
-        public int Grid1 { get; set; }
-        public int Grid2 { get; set; }
-        public int Grid3 { get; set; }
-        public int Grid4 { get; set; }
-        public int Grid5 { get; set; }
-        public int Grid6 { get; set; }
-        public int Grid7 { get; set; }
-        public int Grid8 { get; set; }
-        public int Grid9 { get; set; }
-        public int Grid10 { get; set; }
-        public int Grid11 { get; set; }
-        public int Grid12 { get; set; }
-        public int Grid13 { get; set; }
-        public int Grid14 { get; set; }
-        public int Grid15 { get; set; }
-        public int Grid16 { get; set; }
+        public string Grid1 { get; set; }
+        public string Grid2 { get; set; }
+        public string Grid3 { get; set; }
+        public string Grid4 { get; set; }
+        public string Grid5 { get; set; }
+        public string Grid6 { get; set; }
+        public string Grid7 { get; set; }
+        public string Grid8 { get; set; }
+        public string Grid9 { get; set; }
+        public string Grid10 { get; set; }
+        public string Grid11 { get; set; }
+        public string Grid12 { get; set; }
+        public string Grid13 { get; set; }
+        public string Grid14 { get; set; }
+        public string Grid15 { get; set; }
+        public string Grid16 { get; set; }
         public int Tid { get; set; }
 
     }

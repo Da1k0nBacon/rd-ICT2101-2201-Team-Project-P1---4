@@ -1,4 +1,4 @@
-﻿@model List<_2201_Robot_Car_Website.Models.command>
+﻿@model List<_2201_Robot_Car_Website.Models.ParentModel>
 
 @using Chart.Mvc.ComplexChart;
 @using Chart.Mvc.Extensions;
@@ -36,8 +36,8 @@
     }
 
     /*#selectedCommand > *:first-child {
-        margin-left: 0px;
-    }*/
+                margin-left: 0px;
+            }*/
     #submit, #removeCommand {
         float: right;
     }
@@ -46,131 +46,163 @@
         margin: auto;
     }
 
-     .CommandHistory {
+    .CommandHistory {
         width: 300px;
         height: 400px;
         background-color: white;
         text-align: center;
         overflow-y: scroll;
     }
-    .ComHistEntry{
+
+    .ComHistEntry {
         width: 300px;
         height: 50px;
         background-color: yellow;
         text-align: center;
     }
 
-
 </style>
- <link rel="stylesheet" href="~/style/gameUI.css" asp-append-version="true" />
-
+<link rel="stylesheet" href="~/style/gameUI.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/EditMap.css" />
+<script src="~/js/LoadMap.js"></script>
 <h1>@ViewData["Title"]</h1>
-
-
 
 <div>
     <table>
         <td><p class="game-title">Treasure Hunt</p></td>
-        <td><input type="button" value="Fullscreen" onclick="goFullScreen()" style="float:right;"/></td>
+        <td><input type="button" value="Fullscreen" onclick="goFullScreen()" style="float:right;" /></td>
     </table>
-    
-    
+
+
     <div id="temp" style="background-image:url(../pic/scenery.jpg); opacity:0.8;">
-        <br/>
+        <br />
         <table class="cen">
-        <tr>
-            <td colspan="4">
-                <div id="mapDiv"  style="background-color:white">Map</div>
-            </td>
-            <td rowspan="3">
-                <canvas id="myCanvas" width="400" height="400" style="background-color:white"></canvas><br />
-                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />
-                <div class="card bg-light">
-                    <div class="card-body text-center">
-                        <label id="connectionStatus">Connected</label>
+            <tr>
+                <td colspan="4">
+                    <div class="text-center">
+                        <button id="firstMap" class="map" value="1" onload="loadMap(this.value)">1</button>
                     </div>
-                </div>
-            </td>
-            <td rowspan="3">
-                @*<canvas id="myCanvas" width="300" height="400" style="background-color:white"></canvas><br />
-                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />*@
-                
-                <div class="CommandHistory" id="CommandHistory">
+                    <div id="mapDiv" style="background-color:white">
+                        @{
+                        <div class="text-center">
+                            <!-- this is the place to map the data into, after mapping need change the colour according to the value-->
+                            <button disabled id="1" class="map" value=Model[0].Map.Grid1></button>
+                            <button disabled id="2" class="map" value="0"></button>
+                            <button disabled id="3" class="map" value="0"></button>
+                            <button disabled id="4" class="map" value="0"></button>
+                        </div>
+                        <div class="text-center">
+                            <button disabled id="5" class="map" value="0"></button>
+                            <button disabled id="6" class="map" value="0"></button>
+                            <button disabled id="7" class="map" value="0"></button>
+                            <button disabled id="8" class="map" value="0"></button>
+                        </div>
+                        <div class="text-center">
+                            <button disabled id="9" class="map" value="0"></button>
+                            <button disabled id="10" class="map" value="0"></button>
+                            <button disabled id="11" class="map" value="0"></button>
+                            <button disabled id="12" class="map" value="0"></button>
+                        </div>
+                        <div class="text-center">
+                            <button disabled id="13" class="map" value="0"></button>
+                            <button disabled id="14" class="map" value="0"></button>
+                            <button disabled id="15" class="map" value="0"></button>
+                            <button disabled id="16" class="map" value="0"></button>
+                        </div>
+                        }
+
+                    </div>
+                </td>
+                <td rowspan="3">
+                    <canvas id="myCanvas" width="400" height="400" style="background-color:white"></canvas><br />
+                    <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <label id="connectionStatus">Connected</label>
+                        </div>
+                    </div>
+                </td>
+                <td rowspan="3">
+                    @*<canvas id="myCanvas" width="300" height="400" style="background-color:white"></canvas><br />
+                        <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />*@
+
+                    <div class="CommandHistory" id="CommandHistory">
                         <label style="background-color: White">Command History<br></label>
                         <div class="CommandContainer" id="CommandContainer">
-                        @{
+                            @{
                                 //Try to load if any data
                                 try
                                 {
-                                    int currentSeqID = Model[0].CommandSeq_id;
+                                    int currentSeqID = Model[0].command.CommandSeq_id;
                                     string CommandSeq = "";
 
-                                    foreach(var cmdEntry in Model)
+                                    foreach (var cmdEntry in Model)
                                     {
-                                        int entrySeqID = cmdEntry.CommandSeq_id;
-                                        if(entrySeqID == currentSeqID)
+                                        int entrySeqID = cmdEntry.command.CommandSeq_id;
+                                        if (entrySeqID == currentSeqID)
                                         {
-                                            CommandSeq += cmdEntry.Direction + " ";
+                                            CommandSeq += cmdEntry.command.Direction + " ";
                                         }
                                         else
                                         {
                                             <div id="ComHistEntry" class="ComHistEntry">@CommandSeq</div>
                                             CommandSeq = "";
-                                            CommandSeq += cmdEntry.Direction + " ";
-                                            currentSeqID = cmdEntry.CommandSeq_id;
+                                            CommandSeq += cmdEntry.command.Direction + " ";
+                                            currentSeqID = cmdEntry.command.CommandSeq_id;
                                         }
                                     }
                                     <div id="ComHistEntry" class="ComHistEntry">@CommandSeq</div>
                                 }
-                                catch(ArgumentOutOfRangeException e)
+                                catch (ArgumentOutOfRangeException e)
                                 {
                                     //do nothing
                                 }
-                        }
+                            }
                         </div>
                     </div>
+    </div>
+    </td>
+    </t r>
+    <tr>
+        <td colspan="4">
+            <div id="heartbeat">
+                <audio src="https://css-tricks.com/examples/SoundOnHover/audio/beep.mp3" preload="auto">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                </audio>
+                <div id="command" class="text-center">
+                    <input type="button" class="game-button" value="Up" id="up" />
+                    &nbsp;<input type="button" class="game-button orange" value="Down" id="down">
+                    &nbsp;<input type="button" class="game-button red" value="Left" id="left">
+                    &nbsp;<input type="button" class="game-button green" value="Right" id="right">
                 </div>
-            </td>
-        </t r>
-        <tr>
-            <td colspan="4">
-                <div id="heartbeat">
-                    <audio src="https://css-tricks.com/examples/SoundOnHover/audio/beep.mp3" preload="auto">
-	                    Your browser does not support the <code>audio</code> element.
-                    </audio>
-                      <div id="command" class="text-center">
-                                  <input type="button" class="game-button" value="Up" id="up" />
-                            &nbsp;<input type="button" class="game-button orange" value="Down" id="down">
-                            &nbsp;<input type="button" class="game-button red" value="Left" id="left">
-                            &nbsp;<input type="button" class="game-button green" value="Right" id="right">
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">
-                <div id="selectedCommand" style="background-color:white"></div><br />
-                <img id="removeCommand" src="\image\bin.png" />
-                <br/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">&nbsp;<input type="button" id="clear" value="Clear"></td>
-            <td colspan="2">&nbsp;<input type="button" id="submit" value="Submit"></td>
-            <td></td>
-        </tr>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <div id="selectedCommand" style="background-color:white"></div><br />
+            <img id="removeCommand" src="\image\bin.png" />
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;<input type="button" id="clear" value="Clear"></td>
+        <td colspan="2">&nbsp;<input type="button" id="submit" value="Submit"></td>
+        <td></td>
+    </tr>
 
     </table>
-    
-    
-    </div>
-    
-     <a asp-controller="Home" asp-action="Student" style="text-decoration:none">Back to Student</a>
+
+
+</div>
+
+<a asp-controller="Home" asp-action="Student" style="text-decoration:none">Back to Student</a>
 </div>
 
 <script>
 
-      $('#heartbeat').hover( 
+      $('#heartbeat').hover(
         function() {$("audio")[0].play();},
         function() {$("audio")[0].pause();}
     );
@@ -292,13 +324,13 @@
 
             var jsonList = [];
             var newSeqId = @ViewData["newSeqID"];
-            for (var i = 0; i < cmdSeqList.length; i++) 
+            for (var i = 0; i < cmdSeqList.length; i++)
             {
                     jsonList.push({'Direction' : cmdSeqList[i] , 'CommandSeq_id' : newSeqId, 'OrderNum' :  i , 'Student_Sid' : 1, 'Mapdata_Mid' : 10});
             }
             const jsonString = JSON.stringify(jsonList);
 
-            
+
             $.ajax({
                 url: 'SendChallengeData',
                 type: 'POST',
@@ -309,11 +341,11 @@
                 },error: function(data){
                     alert("Failed to save data");
                 }
-                
-                
+
+
             });
 
-                  
+
 
          });
 
