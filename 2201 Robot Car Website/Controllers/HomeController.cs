@@ -46,31 +46,45 @@ namespace _2201_Robot_Car_Website.Controllers
         public IActionResult Challenge()
         {
             var CommandHistList = DataAccess.LoadCommandHist();
-            ViewData["newSeqID"] = DataAccess.getNewSeqID();
+           // ViewData["newSeqID"] = DataAccess.getNewSeqID();
             return View(CommandHistList);
         }
 
         public JsonResult SendChallengeData(string cmdSeqList)
         {
             var jsonList = JsonConvert.DeserializeObject<dynamic>(cmdSeqList);
-
+            var commands = new List<string>();
             List<command> cmdList = new List<command>();
             foreach (var jsonItem in jsonList)
             {
                 command cmd = new command();
                 cmd.Direction = jsonItem.Direction;
+                commands.Add(cmd.Direction);
                 cmd.Student_Sid = jsonItem.Student_Sid;
                 cmd.OrderNum = jsonItem.OrderNum;
                 cmd.Mapdata_Mid = jsonItem.Mapdata_Mid;
                 cmd.CommandSeq_id = jsonItem.CommandSeq_id;
                 cmdList.Add(cmd);
             }
-            DataAccess.SaveCommandHistory(cmdList);
+            string allCommand = string.Join(",", commands);
+            allCommand = "@" + allCommand + ",";
+            FileInfo fi = new FileInfo(@"wwwroot/sample.txt");
+            using (TextWriter txtWriter = new StreamWriter(fi.Open(FileMode.Truncate)))
+            {
+                txtWriter.Write(allCommand);
+            }
+            //DataAccess.SaveCommandHistory(cmdList);
+
 
             return Json(jsonList);
 
         }
-
+        public IActionResult storage()
+        {
+            string[] text = System.IO.File.ReadAllLines("wwwroot/sample.txt");
+            ViewBag.Data = text;
+            return View();
+        }
 
         public IActionResult EditMap()
         {
