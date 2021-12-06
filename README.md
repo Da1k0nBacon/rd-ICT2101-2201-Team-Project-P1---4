@@ -21,6 +21,7 @@ ICT2101-Team-P1-4 Robot Car Website System Project.
 
 <h1>Test Branch</h1>
 <p style="text-align=justify">Only testing of code from master branch will be done on this branch. Testing will be done by one of the web developers which will then report to the Scrum Master about the testing</p>
+![Capture]
 
 <h1>User Acceptance Test</h1>
 <p style="text-align=justify">This tests are derived via the System State Diagram which is made from the Use Case Diagram</p>
@@ -33,7 +34,10 @@ Please refer to the [UAT Video](https://youtu.be/x71f-snWF9s) here.
 
 <p style="text-align=justify">After coming up with the code coverage test cases the team came up with test cases for branch coverage</p>
 
-![CFG](https://user-images.githubusercontent.com/73848081/144922546-6de54253-8c70-4001-876c-abfff27c20de.png)
+Original CFG: <img src="https://user-images.githubusercontent.com/73848081/144922546-6de54253-8c70-4001-876c-abfff27c20de.png" height = "500" width = "100">
+Path 1: <img src="https://user-images.githubusercontent.com/77711928/144936930-1d581f36-4f29-4816-a125-9ecbea6604a2.png" height = "500" width ="80"> 
+![3rd_path](https://user-images.githubusercontent.com/77711928/144937866-c75d2e33-9e6c-4b4b-88cc-b2079519cfb0.png)
+
 
 <p style="text-align=justify">Finally the team calculate the Cyclomatic complexity: V(G) = e - n + 2(p) which resulted in 13 - 12 + 2 = 3 paths which shows in order to cover enough paths the team would need to cover at least 3 paths this is shown in the test cases below</p>
 
