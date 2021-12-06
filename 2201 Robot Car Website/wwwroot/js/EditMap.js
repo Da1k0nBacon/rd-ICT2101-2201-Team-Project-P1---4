@@ -52,7 +52,7 @@ function submit() {
             alert("Saved to DB");
         },
         failure: function (data) {
-            alert("Cannot ah sial");
+            alert("Failed to Save");
         }
     });
 

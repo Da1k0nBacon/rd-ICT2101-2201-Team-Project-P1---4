@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using _2201_Robot_Car_Website.Data;
+using Newtonsoft.Json;
+using MySql.Data.MySqlClient;
 
 namespace _2201_Robot_Car_Website.Controllers
 {
@@ -64,6 +66,30 @@ namespace _2201_Robot_Car_Website.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        // Send Map Data
+        [HttpPost]
+        public JsonResult SendMapData(string mapData)
+        {
+            var mapDat = JsonConvert.DeserializeObject<dynamic>(mapData);
+
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string Query = "INSERT INTO mapdata (Mid,Grid1,Grid2,Grid3,Grid4,Grid5,Grid6,Grid7,Grid8,Grid9,Grid10,Grid11,Grid12,Grid13,Grid14,Grid15,Grid16)" +
+                    "VALUES('1','" + mapDat[0]["Grid1"] + "','" + mapDat[0]["Grid2"] + "','" + mapDat[0]["Grid3"] + "','" + mapDat[0]["Grid4"] + "','" + mapDat[0]["Grid5"]
+                    + "','" + mapDat[0]["Grid6"] + "','" + mapDat[0]["Grid7"] + "','" + mapDat[0]["Grid8"] + "','" + mapDat[0]["Grid9"] + "','" + mapDat[0]["Grid10"]
+                    + "','" + mapDat[0]["Grid11"] + "','" + mapDat[0]["Grid12"] + "','" + mapDat[0]["Grid13"] + "','" + mapDat[0]["Grid14"] + "','" + mapDat[0]["Grid15"]
+                    + "','" + mapDat[0]["Grid16"] + "')";
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(Query, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                con.Close();
+            }
+
+
+            return Json(mapDat);
         }
     }
 }
