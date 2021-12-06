@@ -1,0 +1,9 @@
+﻿﻿@{
+    Layout = null;
+}
+@foreach (string text in ViewBag.Data)
+{
+  @text
+}
+@*@TempData["TempModel"]
+@{ TempData.Keep("TempModel"); } *@

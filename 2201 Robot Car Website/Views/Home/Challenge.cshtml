@@ -46,7 +46,7 @@
 
      .CommandHistory {
         width: 300px;
-        height: 400px;
+        height: 600px;
         background-color: white;
         text-align: center;
         overflow-y: scroll;
@@ -57,9 +57,37 @@
         background-color: yellow;
         text-align: center;
     }
-
+        #imageMap{
+         margin-left:10px;
+    }
 
 </style>
+<script>
+     //$('#submit').on('click', function() {
+    //              var div = document.getElementById('selectedCommand');
+    //              var c = div.childNodes;
+    //              var txt = "";
+    //              var i;
+    //              var array = [];
+    //              for (i = 0; i < c.length; i++) {
+    //                txt = txt + c[i].value + "<br>";
+    //                array.push(c[i].value);
+    //              }
+    //              console.log(array);
+    //       $.ajax({
+    //                url: "/Home/Submit",
+    //                data: { commands: array},
+    //                type: 'POST',
+    //                success: function (result) {
+    //                   alert(result);
+    //                },
+    //                error: function (result) {
+    //                     alert("error");
+    //                }
+    //            });
+
+    //     });
+    </script>
  <link rel="stylesheet" href="~/style/gameUI.css" asp-append-version="true" />
 
 <h1>@ViewData["Title"]</h1>
@@ -78,16 +106,19 @@
         <table class="cen">
         <tr>
             <td colspan="4">
-                <div id="mapDiv"  style="background-color:white">Map</div>
+                  <div id="mapDiv"  style="background-color:white">
+                    <img id="imageMap" src="\img\Capture.JPG" width="450px" height="320px"/>
+                </div>
             </td>
             <td rowspan="3">
-                <canvas id="myCanvas" width="400" height="400" style="background-color:white"></canvas><br />
-                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />
-                <div class="card bg-light">
+
+                @*<canvas id="myCanvas" width="400" height="400" style="background-color:white"></canvas><br />
+                <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />*@
+              @*  <div class="card bg-light">
                     <div class="card-body text-center">
                         <label id="connectionStatus">Connected</label>
                     </div>
-                </div>
+                </div>*@
             </td>
             <td rowspan="3">
                 @*<canvas id="myCanvas" width="300" height="400" style="background-color:white"></canvas><br />
@@ -105,8 +136,7 @@
 	                    Your browser does not support the <code>audio</code> element.
                     </audio>
                       <div id="command" class="text-center">
-                                  <input type="button" class="game-button" value="Up" id="up" />
-                            &nbsp;<input type="button" class="game-button orange" value="Down" id="down">
+                                  <input type="button" class="game-button" value="Up" id="up"/>
                             &nbsp;<input type="button" class="game-button red" value="Left" id="left">
                             &nbsp;<input type="button" class="game-button green" value="Right" id="right">
                     </div>
@@ -115,14 +145,18 @@
         </tr>
         <tr>
             <td colspan="4">
-                <div id="selectedCommand" style="background-color:white"></div><br />
+                <div id="selectedCommand" style="background-color:white; overflow:scroll;" ></div><br />
                 <img id="removeCommand" src="\image\bin.png" />
                 <br/>
             </td>
         </tr>
         <tr>
             <td colspan="2">&nbsp;<input type="button" id="clear" value="Clear"></td>
-            <td colspan="2">&nbsp;<input type="button" id="submit" value="Submit"></td>
+       
+@*            @using (Html.BeginForm("Submit", "Home", FormMethod.Post)){}
+*@            <td colspan="2">&nbsp;<input type="button" id="submit" value="Submit"></td>
+            
+            
             <td></td>
         </tr>
 
@@ -184,64 +218,64 @@
     }
       });
 
-         const ctx = document.getElementById('myCanvas').getContext('2d');
-         const myChart = new Chart(ctx, {
-             type: 'line',
-             data: {
-                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                 datasets: [{
-                     label: 'Speed',
-                     data: [12, 19, 3, 5, 2, 3],
-                     backgroundColor: [
-                         'rgba(255, 99, 132, 0.2)'
-                     ],
-                     borderColor: [
-                         'rgba(255, 99, 132, 1)'
-                     ],
-                     borderWidth: 1
-                 }]
-             },
-             options: {
-                 scales: {
-                     y: {
-                         beginAtZero: true
-                     }
-                 }
-             }
-         });
+         //const ctx = document.getElementById('myCanvas').getContext('2d');
+         //const myChart = new Chart(ctx, {
+         //    type: 'line',
+         //    data: {
+         //        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+         //        datasets: [{
+         //            label: 'Speed',
+         //            data: [12, 19, 3, 5, 2, 3],
+         //            backgroundColor: [
+         //                'rgba(255, 99, 132, 0.2)'
+         //            ],
+         //            borderColor: [
+         //                'rgba(255, 99, 132, 1)'
+         //            ],
+         //            borderWidth: 1
+         //        }]
+         //    },
+         //    options: {
+         //        scales: {
+         //            y: {
+         //                beginAtZero: true
+         //            }
+         //        }
+         //    }
+         //});
 
-         const distCtx = document.getElementById('distCanvas').getContext('2d');
-         const distChart = new Chart(distCtx, {
-             type: 'horizontalBar',
-             data: {
-                 labels: ['Distance'],
-                 datasets: [{
-                     label: 'Distance',
-                     data: [12, 19, 3, 5, 2, 3],
-                     backgroundColor: [
-                         'rgba(255, 99, 132, 0.2)'
-                     ],
-                     borderColor: [
-                         'rgba(255, 99, 132, 1)'
-                     ],
-                     borderWidth: 1
-                 }]
-             },
-             options: {
-                 indexAxis: 'y',
-                 scales: {
-                     x: {
-                         beginAtZero: true
-                     }
-                 },
-                 plugins: {
-           legend: {
-             position: 'right',
-           }
-         }
+         //const distCtx = document.getElementById('distCanvas').getContext('2d');
+         //const distChart = new Chart(distCtx, {
+         //    type: 'horizontalBar',
+         //    data: {
+         //        labels: ['Distance'],
+         //        datasets: [{
+         //            label: 'Distance',
+         //            data: [12, 19, 3, 5, 2, 3],
+         //            backgroundColor: [
+         //                'rgba(255, 99, 132, 0.2)'
+         //            ],
+         //            borderColor: [
+         //                'rgba(255, 99, 132, 1)'
+         //            ],
+         //            borderWidth: 1
+         //        }]
+         //    },
+         //    options: {
+         //        indexAxis: 'y',
+         //        scales: {
+         //            x: {
+         //                beginAtZero: true
+         //            }
+         //        },
+         //        plugins: {
+         //  legend: {
+         //    position: 'right',
+         //  }
+         //}
 
-             }
-         });
+         //    }
+         //});
 
        $('#submit').on('click', function() {
             var div = document.getElementById('selectedCommand');
@@ -263,7 +297,7 @@
             }
             const jsonString = JSON.stringify(jsonList);
 
-            
+            console.log(jsonString);
             $.ajax({
                 url: 'SendChallengeData',
                 type: 'POST',
