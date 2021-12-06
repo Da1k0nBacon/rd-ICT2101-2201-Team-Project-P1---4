@@ -22,8 +22,6 @@ namespace _2201_Robot_Car_Website.Models
 
         public int Pending { get; set; }
 
-        public int Sid { get; set; }
-
         public DbSet<Student> Students { get; set; }
 
     }
