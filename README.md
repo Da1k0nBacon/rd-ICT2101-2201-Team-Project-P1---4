@@ -36,7 +36,8 @@ Please refer to the [UAT Video](https://youtu.be/x71f-snWF9s) here.
 
 Original CFG: <img src="https://user-images.githubusercontent.com/73848081/144922546-6de54253-8c70-4001-876c-abfff27c20de.png" height = "500" width = "100">
 Path 1: <img src="https://user-images.githubusercontent.com/77711928/144936930-1d581f36-4f29-4816-a125-9ecbea6604a2.png" height = "500" width ="80"> 
-![3rd_path](https://user-images.githubusercontent.com/77711928/144937866-c75d2e33-9e6c-4b4b-88cc-b2079519cfb0.png)
+Path 2:<img src="(https://user-images.githubusercontent.com/77711928/144937866-c75d2e33-9e6c-4b4b-88cc-b2079519cfb0.png)" height = "500" width ="80">
+path 3: <img src="![Baseline_Path](https://user-images.githubusercontent.com/77711928/144938981-4e444623-64ef-436b-9e24-5f5afedeb3ef.png)" height="500">
 
 
 <p style="text-align=justify">Finally the team calculate the Cyclomatic complexity: V(G) = e - n + 2(p) which resulted in 13 - 12 + 2 = 3 paths which shows in order to cover enough paths the team would need to cover at least 3 paths this is shown in the test cases below</p>
