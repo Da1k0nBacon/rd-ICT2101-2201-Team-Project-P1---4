@@ -15,3 +15,14 @@ ICT2101-Team-P1-4 Robot Car Website System Project.
 # Workflow
 <h1>Rules</h1>
 <p style="text-align=justify"> The team has agreed to commit changes to their individual branches first, then from there once confirmed, perform a pull request to the main branch. The code is reviewed by the Scrum Master Tiffany and any conflicts is resolved by her</p>
+
+<h1>Master Branch</h1>
+<p style="text-align=justify">Only the Scrum Master can merge the pull request to the master branch</p>
+
+<h1>Test Branch</h1>
+<p style="text-align=justify">Only testing of code from master branch will be done on this branch. Testing will be done by one of the web developers which will then report to the Scrum Master about the testing</p>
+
+#User Acceptance Test
+<p style="text-align=justify">This tests are derived via the System State Diagram which is made from the Use Case Diagram</p>
+
+#White Box Testing
