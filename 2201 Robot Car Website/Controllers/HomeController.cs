@@ -137,9 +137,6 @@ namespace _2201_Robot_Car_Website.Controllers
 
         }
 
-        
-
-
         public ActionResult RenderStudData()
         {
             return PartialView("_StudData");
