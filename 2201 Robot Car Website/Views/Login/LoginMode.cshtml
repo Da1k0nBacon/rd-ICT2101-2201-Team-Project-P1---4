@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
 
         <style>
-            .content{
+            #content{
                 display:flex;
                 align-content:center;
                 justify-content:center;
@@ -46,6 +46,54 @@
                         </div>
                     </div>
                   }
+            <section>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#teacherModal">Teacher</button>
+                @using (Html.BeginForm("GoTeacher","Login", FormMethod.Post))
+                {
+                        <div class="modal fade" id="teacherModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title">Teacher Credentials</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="fname">ID:</label><br>
+                                    <input type="text" id="TID" name="TID"><br>
+                                    <label for="fname">Password:</label><br>
+                                    <input type="password" id="Password" name="Password"><br>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" id="submitBtn" class="btn btn-default" >Login</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#studentModal">Student</button>
+                @using (Html.BeginForm("GoStudent","Login", FormMethod.Post))
+                {
+                        <div class="modal fade" id="studentModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title">Student Credentials</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <h4>Enter your Student ID.</h4>
+                                    <label for="fname">Student ID:</label><br>
+                                    <input type="text" id="Sid" name="Sid"><br>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" id="submitBtn" class="btn btn-default" >Login</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+            </section>
+             
           </div>
     </body>
 </html>
