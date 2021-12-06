@@ -94,32 +94,40 @@
             <td rowspan="3">
                 @*<canvas id="myCanvas" width="300" height="400" style="background-color:white"></canvas><br />
                 <canvas id="distCanvas" width="400" height="150" style="background-color:white"></canvas><br />*@
+                
                 <div class="CommandHistory" id="CommandHistory">
-                        <label>Command History<br></label>
+                        <label style="background-color: White">Command History<br></label>
+                        <div class="CommandContainer" id="CommandContainer">
                         @{
-                            int currentSeqID = Model[0].CommandSeq_id;
-                            string CommandSeq = "";
+                                //Try to load if any data
+                                try
+                                {
+                                    int currentSeqID = Model[0].CommandSeq_id;
+                                    string CommandSeq = "";
 
-                            foreach(var cmdEntry in Model)
-                            {
-                                int entrySeqID = cmdEntry.CommandSeq_id;
-                                if(entrySeqID == currentSeqID)
-                                {
-                                    CommandSeq += cmdEntry.Direction + " ";
-                                }
-                                else
-                                {
+                                    foreach(var cmdEntry in Model)
+                                    {
+                                        int entrySeqID = cmdEntry.CommandSeq_id;
+                                        if(entrySeqID == currentSeqID)
+                                        {
+                                            CommandSeq += cmdEntry.Direction + " ";
+                                        }
+                                        else
+                                        {
+                                            <div id="ComHistEntry" class="ComHistEntry">@CommandSeq</div>
+                                            CommandSeq = "";
+                                            CommandSeq += cmdEntry.Direction + " ";
+                                            currentSeqID = cmdEntry.CommandSeq_id;
+                                        }
+                                    }
                                     <div id="ComHistEntry" class="ComHistEntry">@CommandSeq</div>
-                                    CommandSeq = "";
-                                    CommandSeq += cmdEntry.Direction + " ";
-                                    currentSeqID = cmdEntry.CommandSeq_id;
                                 }
-                            }
-                            <div id="ComHistEntry" class="ComHistEntry">@CommandSeq</div>
-                            
-
-                            
+                                catch(ArgumentOutOfRangeException e)
+                                {
+                                    //do nothing
+                                }
                         }
+                        </div>
                     </div>
                 </div>
             </td>
@@ -279,13 +287,14 @@
             cmdSeqList.push(c[i].value);
             }
             if(txt != ""){
-                $('#CommandHistory').append("<div id= 'ComHistEntry' class= 'ComHistEntry'><p>" +txt +"</p></div>");
+                $('#CommandContainer').append("<div id= 'ComHistEntry' class= 'ComHistEntry'><p>" +txt +"</p></div>");
             }
 
             var jsonList = [];
+            var newSeqId = @ViewData["newSeqID"];
             for (var i = 0; i < cmdSeqList.length; i++) 
             {
-                    jsonList.push({'Direction' : cmdSeqList[i] , 'CommandSeq_id' : 1 , 'OrderNum' :  i , 'Student_Sid' : 1, 'Mapdata_Mid' : 10});
+                    jsonList.push({'Direction' : cmdSeqList[i] , 'CommandSeq_id' : newSeqId, 'OrderNum' :  i , 'Student_Sid' : 1, 'Mapdata_Mid' : 10});
             }
             const jsonString = JSON.stringify(jsonList);
 

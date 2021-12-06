@@ -58,6 +58,28 @@ namespace _2201_Robot_Car_Website.Data
             }
         }
 
+        public static int getNewSeqID()
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string queryNewSeqID = "SELECT  MAX(CommandSeq_id) as MAX from command";
+                con.Open();
+                MySqlCommand NewSeqCmd = new MySqlCommand(queryNewSeqID, con);
+                MySqlDataReader readSeqID = NewSeqCmd.ExecuteReader();
+                command cmd = new command();
+                while (readSeqID.Read())
+                {
+                    cmd.CommandSeq_id = (int)readSeqID["MAX"] + 1;
+                    
+                }
+                int newSeqID = cmd.CommandSeq_id;
+                con.Close();
+                return newSeqID;
+
+            }
+                
+        }
+
         public static void SaveCommandHistory(List<command> cmd)
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
