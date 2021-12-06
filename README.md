@@ -12,3 +12,6 @@ ICT2101-Team-P1-4 Robot Car Website System Project.
 # Resources
 * Review [Wiki](https://github.com/Da1k0nBacon/rd-ICT2101-2201-Team-Project-P1---4/wiki) for more information about the project and team management
 
+# Workflow
+<h1>Rules</h1>
+<p style="text-align=justify"> The team has agreed to commit changes to their individual branches first, then from there once confirmed, perform a pull request to the main branch. The code is reviewed by the Scrum Master Tiffany and any conflicts is resolved by her</p>
