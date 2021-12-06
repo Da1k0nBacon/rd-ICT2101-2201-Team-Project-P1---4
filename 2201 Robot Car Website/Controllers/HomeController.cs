@@ -34,14 +34,43 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Student()
         {
-            return View();
+            string studentid = HttpContext.Session.GetString("Sid");
+            int id = int.Parse(studentid);
+            var student = DataAccess.getstudentInfo(id);
+            HttpContext.Session.SetString("StudentClass", student.Class);
+            HttpContext.Session.SetString("StudentName", student.StudentName);
+            //return RedirectToAction("Student");
+            return View(student);
         }
 
         public IActionResult Challenge()
         {
-            return View();
+            var CommandHistList = DataAccess.LoadCommandHist();
+            ViewData["newSeqID"] = DataAccess.getNewSeqID();
+            return View(CommandHistList);
         }
-        
+
+        public JsonResult SendChallengeData(string cmdSeqList)
+        {
+            var jsonList = JsonConvert.DeserializeObject<dynamic>(cmdSeqList);
+
+            List<command> cmdList = new List<command>();
+            foreach (var jsonItem in jsonList)
+            {
+                command cmd = new command();
+                cmd.Direction = jsonItem.Direction;
+                cmd.Student_Sid = jsonItem.Student_Sid;
+                cmd.OrderNum = jsonItem.OrderNum;
+                cmd.Mapdata_Mid = jsonItem.Mapdata_Mid;
+                cmd.CommandSeq_id = jsonItem.CommandSeq_id;
+                cmdList.Add(cmd);
+            }
+            DataAccess.SaveCommandHistory(cmdList);
+
+            return Json(jsonList);
+
+        }
+
 
         public IActionResult EditMap()
         {
@@ -50,7 +79,10 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Teacher()
         {
-            return View();
+            string teacherId = HttpContext.Session.GetString("Tid");
+            string pw = HttpContext.Session.GetString("pw");
+            var teacher = DataAccess.getTeacherInfo(int.Parse(teacherId),pw);
+            return View(teacher);
         }
 
         public IActionResult StudentResult()
