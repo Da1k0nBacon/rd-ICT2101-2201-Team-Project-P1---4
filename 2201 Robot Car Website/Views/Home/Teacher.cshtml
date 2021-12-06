@@ -1,7 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Teacher Page";
+    ViewBag.Title = "Teacher";
 }
-
+@model IEnumerable<_2201_Robot_Car_Website.Models.Student>
+@using Chart.Mvc.ComplexChart;
+@using Chart.Mvc.Extensions;
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <h1>@ViewData["Title"]</h1>
 
 <h2>Id: @Context.Session.GetString("Tid")</h2>
@@ -14,6 +23,162 @@
     </li>
 </ul>
 
-<div class="text-center">
+<style>
+    .cen {
+        margin: auto;
+    }
+
+    td {
+        padding: 0 15px;
+    }
+
+    tr {
+        padding: 0 50px;
+    }
+</style>
+
+<div class="cen">
     <h1 class="display-4">Dis is da Teacher page</h1>
+    <div class="card">
+    </div>
+
+    <table class="cen">
+        <tr>
+            <td>
+                <div class="card border-left-primary h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <h6>Top Students:</h6>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <label id="tStud">Student Name</label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card border-left-primary h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                @*to know which challenge is difficult from student pov*@
+                                <h6>Challenge with Most Students:</h6>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <label id="challenge">Challenge Name/Number</label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card border-left-primary h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                @*to know which students needs more help*@
+                                <h6>Bottom Students:</h6>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <label id="bStud">Student Name</label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <canvas id="taskCompleted" width="200" height="80"></canvas>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="4">
+                <canvas id="taskStudentAt" width="200" height="80"></canvas>
+            </td>
+        </tr>
+    </table>
 </div>
+
+
+<script>
+    const complete = document.getElementById('taskCompleted').getContext('2d');
+         const chart1 = new Chart(complete, {
+             type: 'line',
+             data: {
+                 labels: ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'],
+                 datasets: [{
+                     label: 'Number of Student Completed',
+                     data: [31, 28, 26, 21, 19, 12],
+                     backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)'
+                     ],
+                     borderColor: [
+                         'rgba(255, 99, 132, 1)'
+                     ],
+                     borderWidth: 1
+                 }]
+             },
+             options: {
+                 scales: {
+                     y: {
+                         beginAtZero: true
+                     }
+                 }
+             }
+         });
+
+         const status = document.getElementById('taskStudentAt').getContext('2d');
+         const chart2 = new Chart(status, {
+             type: 'bar',
+             data: {
+                 labels: ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'],
+                 datasets: [{
+                     label: 'Number of Student',
+                     data: [12, 7, 3, 5, 2, 3],
+                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                     borderColor: 'rgba(255, 99, 132, 1)',
+                     borderWidth: 1
+                 }],
+
+             },
+             options: {
+                 scales: {
+                     y: {
+                         beginAtZero: true
+                     }
+                 }
+             }
+         });
+         
+
+     function showData(val){
+        console.log("Hi: ", val.value);
+        $.ajax({  
+            url: 'getRobot',
+            data: {'sClass' : val.value}, 
+            type: 'POST', 
+            cache: false,
+            success: function (response) {  
+                 $("#robotData").html(response);
+            },    
+            failure: function (jqXHR, textStatus, errorThrown) {                  
+                alert("Status: " + jqXHR.status + "; Error: " + jqXHR.responseText); // Display error message  
+                console.log("Emo");
+            }  
+        });  
+
+     }
+</script>

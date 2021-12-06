@@ -5,5 +5,11 @@
 <h1>@ViewData["Title"]</h1>
 
 <div class="text-center">
-    <h1 class="display-4">Dis is da Student Results page</h1>
+    
+
+     <div id="stdentData">
+     @{
+          Html.RenderPartial("_StudData");   
+        }
+     </div>
 </div>

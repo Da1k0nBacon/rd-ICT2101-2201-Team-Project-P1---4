@@ -1,20 +1,25 @@
-﻿using _2201_Robot_Car_Website.Models;
+using _2201_Robot_Car_Website.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using _2201_Robot_Car_Website.Data;
+using System.Data;
+using System.Text.Json;
 using Newtonsoft.Json;
 using MySql.Data.MySqlClient;
+
 
 namespace _2201_Robot_Car_Website.Controllers
 {
     public class HomeController : Controller
     {
+        Student context = new Student();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
+
 
         public IActionResult Index()
         {
@@ -52,6 +57,7 @@ namespace _2201_Robot_Car_Website.Controllers
             
             return View(CommandHistList);
         }
+
 
         public JsonResult SendChallengeData(string cmdSeqList)
         {
@@ -104,18 +110,48 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult StudentResult()
         {
-            return View();
+            var StudentList = DataAccess.GetStudData();
+            return View(StudentList);
         }
 
         public IActionResult loadingPage()
         {
             return View();
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        [HttpPost]
+        public ActionResult getStudData(string sClass)
+        {
+            string message = sClass;
+
+            var StudentList = DataAccess.GetStudDataTest(message);
+
+            return PartialView("_StudData", StudentList);
+
+        }
+
+        
+
+
+        public ActionResult RenderStudData()
+        {
+            return PartialView("_StudData");
+        }
+
+        public IActionResult StudentDetails(int id)
+        {
+            var studentCommandHist = DataAccess.getStudentCommandHist(id);
+            return View(studentCommandHist);
+        }
+
+
         // Send Map Data
         [HttpPost]
         public JsonResult SendMapData(string mapData)
@@ -140,5 +176,6 @@ namespace _2201_Robot_Car_Website.Controllers
 
             return Json(mapDat);
         }
+
     }
 }
