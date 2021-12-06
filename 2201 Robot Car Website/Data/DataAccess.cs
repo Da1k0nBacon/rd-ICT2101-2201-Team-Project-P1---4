@@ -9,6 +9,7 @@ namespace _2201_Robot_Car_Website.Data
 {
     public class DataAccess
     {
+        
         public static List<Student> GetClasses()
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
@@ -32,6 +33,31 @@ namespace _2201_Robot_Car_Website.Data
             }
         }
 
+
+        public static Student getstudentInfo(int sid)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string query = "SELECT * FROM Student WHERE Sid = @studentid";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@studentid", sid);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Student student = new Student();
+                while (reader.Read())
+                {
+                    student.Class = reader["Class"].ToString();
+                    student.StudentName = reader["StudentName"].ToString();
+
+                }
+                con.Close();
+
+
+
+                return student;
+            }
+        }
 
         public static List<command> LoadCommandHist()
         {
@@ -58,6 +84,7 @@ namespace _2201_Robot_Car_Website.Data
                 return CommandHistList;
             }
         }
+
 
         public static List<Student> GetRobotData()
         {
@@ -105,6 +132,28 @@ namespace _2201_Robot_Car_Website.Data
                 con.Close();
                 return Studentlist;
             }
+
+        public static int getNewSeqID()
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string queryNewSeqID = "SELECT  MAX(CommandSeq_id) as MAX from command";
+                con.Open();
+                MySqlCommand NewSeqCmd = new MySqlCommand(queryNewSeqID, con);
+                MySqlDataReader readSeqID = NewSeqCmd.ExecuteReader();
+                command cmd = new command();
+                while (readSeqID.Read())
+                {
+                    cmd.CommandSeq_id = (int)readSeqID["MAX"] + 1;
+                    
+                }
+                int newSeqID = cmd.CommandSeq_id;
+                con.Close();
+                return newSeqID;
+
+            }
+                
+
         }
 
         public static void SaveCommandHistory(List<command> cmd)
