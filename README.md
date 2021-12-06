@@ -27,6 +27,8 @@ ICT2101-Team-P1-4 Robot Car Website System Project.
 
 <h1>White Box Testing</h1>
 <p style="text-align=justify">This is done by first coming up with test cases manually for code coverage</p>
+![image](https://user-images.githubusercontent.com/73848081/144934450-2bad35ac-9297-4ea2-ba11-cbae90e47cf8.png)
+
 
 <p style="text-align=justify">After coming up with the code coverage test cases the team came up with test cases for branch coverage</p>
 
