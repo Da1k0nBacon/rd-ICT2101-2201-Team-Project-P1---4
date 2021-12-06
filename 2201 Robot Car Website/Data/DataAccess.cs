@@ -12,7 +12,7 @@ namespace _2201_Robot_Car_Website.Data
 
         public static List<Student> GetClasses()
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
                 string Query = "SELECT StudentName, Class  from Student";
                 con.Open();
@@ -37,7 +37,7 @@ namespace _2201_Robot_Car_Website.Data
         public static Student getstudentInfo(int sid)
 
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
                 string query = "SELECT * FROM Student WHERE Sid = @studentid";
                 con.Open();
@@ -60,7 +60,7 @@ namespace _2201_Robot_Car_Website.Data
 
         public static TeacherClass getTeacherInfo(int tid, string pw)
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
                 string query = "SELECT * FROM teacher WHERE TID = @teacherid AND Password = @pw";
                 con.Open();
@@ -94,7 +94,7 @@ namespace _2201_Robot_Car_Website.Data
         }
         public static List<command> LoadCommandHist(int sid)
         {
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
                 string Query = "SELECT  *  from command WHERE Student_Sid = @studentid ORDER BY CommandSeq_id, OrderNum";
                 con.Open();
@@ -195,7 +195,7 @@ namespace _2201_Robot_Car_Website.Data
 
             public static int getNewSeqID()
             {
-                using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+                using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
                 {
                     string queryNewSeqID = "SELECT  MAX(CommandSeq_id) as MAX from command";
                     con.Open();
@@ -218,7 +218,7 @@ namespace _2201_Robot_Car_Website.Data
 
             public static void SaveCommandHistory(List<command> cmd)
             {
-                using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+                using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
                 {
                     string InsertSql = "INSERT INTO command VALUES (@Direction, @CommandSeq_id, @OrderNum, @Student_Sid, @Mapdata_Mid)";
                     con.Open();

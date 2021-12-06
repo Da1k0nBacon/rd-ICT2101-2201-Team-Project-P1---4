@@ -52,7 +52,7 @@ namespace _2201_Robot_Car_Website.Controllers
         {
 
             var CommandHistList = DataAccess.LoadCommandHist(int.Parse(HttpContext.Session.GetString("Sid")));
-            ViewData["newSeqID"] = DataAccess.getNewSeqID();
+            ViewData["newSeqID"] = DataAccess.getNewSeqID() + 1;
 
             
             return View(CommandHistList);
@@ -82,7 +82,7 @@ namespace _2201_Robot_Car_Website.Controllers
             {
                 txtWriter.Write(allCommand);
             }
-            //DataAccess.SaveCommandHistory(cmdList);
+            DataAccess.SaveCommandHistory(cmdList);
 
 
             return Json(jsonList);
@@ -158,7 +158,7 @@ namespace _2201_Robot_Car_Website.Controllers
         {
             var mapDat = JsonConvert.DeserializeObject<dynamic>(mapData);
             int teacherId = int.Parse(HttpContext.Session.GetString("Tid"));
-            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=root;port=3306"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
                 string Query = "INSERT INTO mapdata (Mid, Grid1,Grid2,Grid3,Grid4,Grid5,Grid6,Grid7,Grid8,Grid9,Grid10,Grid11,Grid12,Grid13,Grid14,Grid15,Grid16,Teacher_TID)" +
                     "VALUES('1','" + mapDat[0]["Grid1"] + "','" + mapDat[0]["Grid2"] + "','" + mapDat[0]["Grid3"] + "','" + mapDat[0]["Grid4"] + "','" + mapDat[0]["Grid5"]
