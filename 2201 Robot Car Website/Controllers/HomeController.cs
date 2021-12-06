@@ -42,10 +42,18 @@ namespace _2201_Robot_Car_Website.Controllers
             string studentid = HttpContext.Session.GetString("Sid");
             int id = int.Parse(studentid);
             var student = DataAccess.getstudentInfo(id);
+            var map = DataAccess.GetMapId();
+
+            Student_Page studentPage = new Student_Page
+            {
+                student = student,
+                map = map
+            };  
             HttpContext.Session.SetString("StudentClass", student.Class);
             HttpContext.Session.SetString("StudentName", student.StudentName);
             //return RedirectToAction("Student");
-            return View(student);
+            
+            return View(studentPage);
         }
 
         public IActionResult Challenge()

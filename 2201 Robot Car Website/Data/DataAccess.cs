@@ -193,77 +193,98 @@ namespace _2201_Robot_Car_Website.Data
             }
         }
 
-            public static int getNewSeqID()
+        public static int getNewSeqID()
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
-                using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+                string queryNewSeqID = "SELECT  MAX(CommandSeq_id) as MAX from command";
+                con.Open();
+                MySqlCommand NewSeqCmd = new MySqlCommand(queryNewSeqID, con);
+                MySqlDataReader readSeqID = NewSeqCmd.ExecuteReader();
+                command cmd = new command();
+                while (readSeqID.Read())
                 {
-                    string queryNewSeqID = "SELECT  MAX(CommandSeq_id) as MAX from command";
-                    con.Open();
-                    MySqlCommand NewSeqCmd = new MySqlCommand(queryNewSeqID, con);
-                    MySqlDataReader readSeqID = NewSeqCmd.ExecuteReader();
-                    command cmd = new command();
-                    while (readSeqID.Read())
-                    {
-                        cmd.CommandSeq_id = (int)readSeqID["MAX"] + 1;
-
-                    }
-                    int newSeqID = cmd.CommandSeq_id;
-                    con.Close();
-                    return newSeqID;
+                    cmd.CommandSeq_id = (int)readSeqID["MAX"] + 1;
 
                 }
-
+                int newSeqID = cmd.CommandSeq_id;
+                con.Close();
+                return newSeqID;
 
             }
 
-            public static void SaveCommandHistory(List<command> cmd)
-            {
-                using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
-                {
-                    string InsertSql = "INSERT INTO command VALUES (@Direction, @CommandSeq_id, @OrderNum, @Student_Sid, @Mapdata_Mid)";
-                    con.Open();
 
-                    foreach (command cmdItem in cmd)
-                    {
-                        MySqlCommand sqlCommand = new MySqlCommand(InsertSql, con);
-                        sqlCommand.Parameters.AddWithValue("@Direction", cmdItem.Direction);
-                        sqlCommand.Parameters.AddWithValue("@CommandSeq_id", cmdItem.CommandSeq_id);
-                        sqlCommand.Parameters.AddWithValue("@OrderNum", cmdItem.OrderNum);
-                        sqlCommand.Parameters.AddWithValue("@Student_Sid", cmdItem.Student_Sid);
-                        sqlCommand.Parameters.AddWithValue("@Mapdata_Mid", cmdItem.Mapdata_Mid);
-                        sqlCommand.ExecuteNonQuery();
-                    }
-                    con.Close();
+        }
+
+        public static void SaveCommandHistory(List<command> cmd)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string InsertSql = "INSERT INTO command VALUES (@Direction, @CommandSeq_id, @OrderNum, @Student_Sid, @Mapdata_Mid)";
+                con.Open();
+
+                foreach (command cmdItem in cmd)
+                {
+                    MySqlCommand sqlCommand = new MySqlCommand(InsertSql, con);
+                    sqlCommand.Parameters.AddWithValue("@Direction", cmdItem.Direction);
+                    sqlCommand.Parameters.AddWithValue("@CommandSeq_id", cmdItem.CommandSeq_id);
+                    sqlCommand.Parameters.AddWithValue("@OrderNum", cmdItem.OrderNum);
+                    sqlCommand.Parameters.AddWithValue("@Student_Sid", cmdItem.Student_Sid);
+                    sqlCommand.Parameters.AddWithValue("@Mapdata_Mid", cmdItem.Mapdata_Mid);
+                    sqlCommand.ExecuteNonQuery();
                 }
+                con.Close();
             }
+        }
 
-            public static List<command> getStudentCommandHist(int id)
+        public static List<command> getStudentCommandHist(int id)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
-                using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+                string Query = "SELECT  *  from command WHERE Student_Sid = " + id + " ORDER BY CommandSeq_id, OrderNum";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(Query, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<command> CommandHistList = new List<command>();
+                while (reader.Read())
                 {
-                    string Query = "SELECT  *  from command WHERE Student_Sid = " + id + " ORDER BY CommandSeq_id, OrderNum";
-                    con.Open();
-                    MySqlCommand cmd = new MySqlCommand(Query, con);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                    command commandObj = new command();
+                    commandObj.Direction = reader["Direction"].ToString();
+                    commandObj.CommandSeq_id = (int)reader["CommandSeq_id"];
+                    commandObj.OrderNum = (int)reader["OrderNum"];
+                    commandObj.Mapdata_Mid = (int)reader["Mapdata_Mid"];
+                    commandObj.Student_Sid = (int)reader["Student_Sid"];
 
-                    List<command> CommandHistList = new List<command>();
-                    while (reader.Read())
-                    {
-                        command commandObj = new command();
-                        commandObj.Direction = reader["Direction"].ToString();
-                        commandObj.CommandSeq_id = (int)reader["CommandSeq_id"];
-                        commandObj.OrderNum = (int)reader["OrderNum"];
-                        commandObj.Mapdata_Mid = (int)reader["Mapdata_Mid"];
-                        commandObj.Student_Sid = (int)reader["Student_Sid"];
-
-                        CommandHistList.Add(commandObj);
-                    }
-                    con.Close();
-                    return CommandHistList;
+                    CommandHistList.Add(commandObj);
                 }
+                con.Close();
+                return CommandHistList;
+            }
+        }
+
+        public static List<Map> GetMapId()
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string mapIdQuery = "SELECT Mid from mapdata";
+                con.Open();
+
+                MySqlCommand cmd = new MySqlCommand(mapIdQuery, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Map> mapList = new List<Map>();
+                while (reader.Read())
+                {
+                    Map map = new Map();
+                    map.Mid = (int)reader["Mid"];
+                    mapList.Add(map);
+                }
+                return mapList;
             }
 
 
 
         }
     }
+}
