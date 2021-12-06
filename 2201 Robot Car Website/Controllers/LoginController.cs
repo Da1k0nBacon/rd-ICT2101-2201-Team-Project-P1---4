@@ -33,5 +33,10 @@ namespace _2201_Robot_Car_Website.Controllers
             return RedirectToAction("Teacher", "Home");
         }
 
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("LoginMode", "Login");
+        }
     }
 }
