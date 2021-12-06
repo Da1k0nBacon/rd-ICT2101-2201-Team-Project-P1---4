@@ -38,7 +38,8 @@ namespace _2201_Robot_Car_Website.Controllers
 
         public IActionResult Challenge()
         {
-            return View();
+            var CommandHistList = DataAccess.LoadCommandHist();
+            return View(CommandHistList);
         }
 
         public JsonResult SendChallengeData(string cmdSeqList)
