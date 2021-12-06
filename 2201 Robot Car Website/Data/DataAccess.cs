@@ -133,6 +133,7 @@ namespace _2201_Robot_Car_Website.Data
                 return Studentlist;
             }
 
+        }
         public static int getNewSeqID()
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
@@ -145,11 +146,11 @@ namespace _2201_Robot_Car_Website.Data
                 while (readSeqID.Read())
                 {
                     cmd.CommandSeq_id = (int)readSeqID["MAX"] + 1;
-                    
+
                 }
                 int newSeqID = cmd.CommandSeq_id;
                 con.Close();
-                return newSeqID;
+                return 0;
 
             }
                 
@@ -177,6 +178,44 @@ namespace _2201_Robot_Car_Website.Data
             }
         }
 
+        
+        public static void GetMap(int mapid)
+        {
+            using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
+            {
+                string query = "SELECT * FROM mapdata WHERE Mid = @mapid";
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@mapid", mapid);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                mapdata map = new mapdata();
+                while (reader.Read())
+                {
+                   
+                    map.Mid = int.Parse(reader["Mid"].ToString());
+                    map.Grid1 = reader["Grid1"].ToString();
+                    map.Grid2 = reader["Grid2"].ToString();
+                    map.Grid3 = reader["Grid3"].ToString();
+                    map.Grid4 = reader["Grid4"].ToString();
+                    map.Grid5 = reader["Grid5"].ToString();
+                    map.Grid6 = reader["Grid6"].ToString();
+                    map.Grid7 = reader["Grid7"].ToString();
+                    map.Grid8 = reader["Grid8"].ToString();
+
+                    map.Grid9 = reader["Grid9"].ToString();
+                    map.Grid10 = reader["Grid10"].ToString();
+                    map.Grid11 = reader["Grid11"].ToString();
+                    map.Grid12 = reader["Grid12"].ToString();
+                    map.Grid13 = reader["Grid13"].ToString();
+                    map.Grid14 = reader["Grid14"].ToString();
+                    map.Grid15 = reader["Grid15"].ToString();
+                    map.Grid16 = reader["Grid16"].ToString();
+
+                }
+                con.Close();
+            }
+        }
 
 
     }
