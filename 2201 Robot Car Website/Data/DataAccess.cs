@@ -60,7 +60,7 @@ namespace _2201_Robot_Car_Website.Data
         {
             using (MySqlConnection con = new MySqlConnection("server=localhost;user=root;database=robotwebsitedb; password=password;port=3306"))
             {
-                string Query = "select s.StudentName, s.Class, s.Sid, r.Conn_Status from robotwebsitedb.student s inner join robotwebsitedb.robotdata r on s.Sid = r.Student_Sid where s.Class = '" + Class + "'";
+                string Query = "select s.StudentName, s.Class, s.Sid, r.Conn_Status from student s inner join robotdata r on s.Sid = r.Student_Sid where s.Class = '" + Class + "'";
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(Query, con);
                 MySqlDataReader reader = cmd.ExecuteReader();

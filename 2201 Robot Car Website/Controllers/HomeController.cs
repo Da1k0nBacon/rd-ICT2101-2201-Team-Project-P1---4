@@ -17,6 +17,7 @@ namespace _2201_Robot_Car_Website.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
             var StudentList = DataAccess.GetClasses();
@@ -79,16 +80,34 @@ namespace _2201_Robot_Car_Website.Controllers
         //    return Json(new { Message = message, JsonRequestBehavior.AllowGet });
         //}
 
+        //[HttpPost]
+        //public ActionResult Teacher([FromBody] Student sClass)
+        //{
+        //    string message = sClass.sClass;
+
+        //    var StudentList = DataAccess.GetRobotDataTest(message);
+
+        //    //Teacher(message);
+        //    //return Json(JsonSerializer.Serialize(StudentList));
+        //    return View("Teacher", StudentList); 
+        //}
+
+
         [HttpPost]
-        public ActionResult getRobot([FromBody] Student sClass)
+        public ActionResult getRobot(string sClass)
         {
-            string message = sClass.sClass;
+            string message = sClass;
 
             var StudentList = DataAccess.GetRobotDataTest(message);
-            
 
-            return Json(JsonSerializer.Serialize(StudentList));
+            //Teacher(message);
+            //return Json(JsonSerializer.Serialize(StudentList));
+            return PartialView("_RobotData", StudentList);
+            //return Json(new {StudentList = StudentList});
+
         }
+
+
 
         [HttpGet]
         public ActionResult getStudent()
@@ -97,6 +116,11 @@ namespace _2201_Robot_Car_Website.Controllers
             students = context.Students.ToList();
             //return Json(students, JsonRequestBehavior.AllowGet);
             return Json(students);
+        }
+
+        public ActionResult RenderRobotData()
+        {
+            return PartialView("_RobotData");
         }
 
     }
